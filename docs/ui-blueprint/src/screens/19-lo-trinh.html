@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Lộ trình code</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .doc { background: var(--bg); padding: 34px 48px; display: flex; flex-direction: column; gap: 14px; }
+  .hd .n { font-size: 15px; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
+  .hd h1 { font-size: 36px; letter-spacing: -1px; font-weight: 800; margin-top: 4px; }
+  .hd p { color: var(--muted); font-size: 16px; margin-top: 6px; }
+  .g0 { display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: center; background: #fff; border: 1.5px dashed var(--primary-line); border-radius: 14px; padding: 12px 18px; }
+  .g0 .num { font-size: 22px; font-weight: 800; color: var(--primary); }
+  .ms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; flex: 1; min-height: 0; }
+  .m { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .m .mh { border-radius: 12px; padding: 9px 14px; color: #fff; }
+  .m .mh .k { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; opacity: .85; }
+  .m .mh .t { font-size: 20px; font-weight: 800; margin-top: 2px; }
+  .m .mh .w { font-size: 13px; margin-top: 4px; opacity: .9; }
+  .ph { border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+  .ph .h { display: flex; gap: 10px; align-items: center; }
+  .ph .h b { width: 28px; height: 28px; border-radius: 10px; display: grid; place-items: center; font-size: 13px; background: var(--primary-soft); color: var(--primary); flex-shrink: 0; }
+  .ph .h .t { font-weight: 700; font-size: 14px; line-height: 1.3; }
+  .ph .d { font-size: 12px; color: var(--text-2); margin-top: 4px; line-height: 1.45; }
+  .ph .s { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+  .ph .s span { font-size: 10.5px; font-weight: 700; background: #f0f1f6; color: var(--muted); border-radius: 5px; padding: 1px 6px; }
+  .gate { margin-top: auto; font-size: 12px; background: var(--green-soft); color: #14532d; border-radius: 10px; padding: 8px 10px; line-height: 1.45; }
+  .bottom { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; }
+  .bottom .card { padding: 12px 16px; }
+  .bottom .card-h { margin-bottom: 8px; }
+  .stack { display: flex; gap: 8px; flex-wrap: wrap; }
+  .stack span { background: #fff; border: 1px solid var(--line-2); border-radius: 9px; padding: 6px 10px; font-size: 12.5px; font-weight: 600; }
+  .need li { list-style: none; display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 12.5px; padding: 2px 0; }
+  .need li svg.lucide { width: 15px; height: 15px; color: var(--primary); margin-top: 1px; }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="hd"><div class="n">19 · LỘ TRÌNH CODE</div><h1>1 giai đoạn thiết kế + 12 giai đoạn code, chia 4 mốc</h1><p>Mỗi giai đoạn có điều kiện hoàn thành rõ ràng; chưa đạt thì không sang giai đoạn sau. Ước lượng cho 1 lập trình viên làm cùng AI agent: khoảng 22–28 tuần (5–7 tháng).</p></div>
+
+  <div class="g0"><span class="num">GĐ 0</span><div><b>Thiết kế & chốt kiến trúc (không code)</b> — bộ giao diện v3 này, sơ đồ dữ liệu, quyết định kỹ thuật (ADR), ma trận chính sách nền tảng đã xác minh lại trên Seller Center Việt Nam.</div><span class="badge purple">1–2 tuần · đang làm</span></div>
+
+  <div class="ms">
+    <div class="m">
+      <div class="mh" style="background:linear-gradient(135deg,#6d4aff,#8b5cf6)"><div class="k">MỐC A</div><div class="t">Phát live được</div><div class="w">8–10 tuần</div></div>
+      <div class="ph"><div class="h"><b>1</b><div class="t">Nền móng ứng dụng</div></div><div class="d">Web theo bộ giao diện này, API, cơ sở dữ liệu, đăng nhập, phân quyền, nhật ký, kho khóa mã hóa.</div><div class="s"><span>Màn 02</span></div></div>
+      <div class="ph"><div class="h"><b>2</b><div class="t">Kênh & tài khoản</div></div><div class="d">YouTube & Facebook qua đăng nhập chính thức, stream key TikTok/Shopee, nhiều tài khoản, kiểm tra kết nối.</div><div class="s"><span>Màn 03</span><span>04</span></div></div>
+      <div class="ph"><div class="h"><b>3</b><div class="t">Sản phẩm, affiliate, hồ sơ tư vấn</div></div><div class="d">Hàng thật / affiliate, link theo sàn, kiểm tra link chết, nhập Excel, hồ sơ tư vấn.</div><div class="s"><span>Màn 05</span><span>06</span></div></div>
+      <div class="ph"><div class="h"><b>4</b><div class="t">Media Engine</div></div><div class="d">FFmpeg + MediaMTX, phát từng kênh độc lập, tự nối lại, relay SRT, xem trước.</div><div class="s"><span>Màn 13</span></div></div>
+      <div class="ph"><div class="h"><b>5</b><div class="t">Tạo phiên, lịch, OBS</div></div><div class="d">Chế độ/kênh/thời lượng, lịch + ca người dẫn, bộ chặn chính sách, OBS Agent, Control Room.</div><div class="s"><span>Màn 11</span><span>12</span><span>13</span><span>14</span><span>18</span></div></div>
+      <div class="gate"><b>Hoàn thành khi:</b> phát 2 giờ lên YouTube + Facebook và 1 phiên TikTok Shop qua OBS, rớt 1 kênh không ảnh hưởng kênh khác.</div>
+    </div>
+
+    <div class="m">
+      <div class="mh" style="background:linear-gradient(135deg,#0d9488,#14b8a6)"><div class="k">MỐC B</div><div class="t">Bình luận & AI bán hàng</div><div class="w">5–6 tuần</div></div>
+      <div class="ph"><div class="h"><b>6</b><div class="t">Comment Hub</div></div><div class="d">Gom bình luận YouTube + Facebook qua API theo thời gian thực, che thông tin cá nhân; TikTok/Shopee: người vận hành xử lý.</div><div class="s"><span>Màn 15</span></div></div>
+      <div class="ph"><div class="h"><b>7</b><div class="t">AI phân loại & trả lời</div></div><div class="d">Tách chuyển đổi trực tiếp / tư vấn / hỏi giá / chốt đơn / khiếu nại / spam; trả lời theo hồ sơ (có nguồn); 3 chế độ AI tự động · duyệt · thủ công.</div><div class="s"><span>Màn 15</span><span>16</span></div></div>
+      <div class="ph"><div class="h"><b>8</b><div class="t">Kịch bản AI động</div></div><div class="d">Kịch bản theo giai đoạn, tự viết lại theo bình luận, không lặp nguyên văn, teleprompter cho người dẫn Hybrid.</div><div class="s"><span>Màn 09</span></div></div>
+      <div class="gate"><b>Hoàn thành khi:</b> ≥ 90% bình luận chuyển đổi được nhận đúng (bộ thử 500 bình luận tiếng Việt thật), trả lời &lt; 3 giây, 0 câu nằm ngoài hồ sơ.</div>
+    </div>
+
+    <div class="m">
+      <div class="mh" style="background:linear-gradient(135deg,#db2777,#f472b6)"><div class="k">MỐC C</div><div class="t">AI Host</div><div class="w">6–8 tuần</div></div>
+      <div class="ph"><div class="h"><b>9</b><div class="t">AI giọng nói</div></div><div class="d">Kết nối nhà cung cấp giọng Việt (API thương mại; model GitHub khi license cho phép), nhấn nhá/ngắt nghỉ, thư viện giọng, đồng ý khi nhân bản.</div><div class="s"><span>Màn 08</span></div></div>
+      <div class="ph"><div class="h"><b>10</b><div class="t">AI nhân vật & người dẫn ảo</div></div><div class="d">Tạo nhân vật, clip cầm sản phẩm dựng sẵn, nhép miệng theo giọng trên GPU, ghép scene, nhãn AI; chỉ bật ở nền tảng cho phép.</div><div class="s"><span>Màn 07</span><span>14</span></div></div>
+      <div class="ph"><div class="h"><b>11</b><div class="t">Background & Scene Studio</div></div><div class="d">Nền AI, mẫu scene, lớp, bản 16:9 + 9:16, đồng bộ lên OBS.</div><div class="s"><span>Màn 10</span></div></div>
+      <div class="gate"><b>Hoàn thành khi:</b> AI Host chạy liên tục 4 giờ trên YouTube/Facebook, độ trễ trả lời bằng giọng &lt; 4 giây, GPU không quá tải.</div>
+    </div>
+
+    <div class="m">
+      <div class="mh" style="background:linear-gradient(135deg,#2563eb,#60a5fa)"><div class="k">MỐC D</div><div class="t">Vận hành</div><div class="w">3–4 tuần</div></div>
+      <div class="ph"><div class="h"><b>12</b><div class="t">Phân tích, tự động hóa, chạy thử</div></div><div class="d">Báo cáo bán hàng & kỹ thuật, n8n (lịch, cảnh báo Telegram/Zalo, báo cáo sau live), kiểm tra bảo mật, chạy thử 2 → 4 → 8 → 12 giờ với 1 workspace thật.</div><div class="s"><span>Màn 02</span><span>17</span></div></div>
+      <div class="card" style="box-shadow:none;padding:12px">
+        <div class="semi small" style="margin-bottom:6px">Chạy thử (pilot)</div>
+        <div class="tiny muted" style="line-height:1.6">1 workspace · 10 sản phẩm · 2 tài khoản mỗi nền tảng · 1 phiên AI Host + 1 phiên Hybrid mỗi ngày trong 2 tuần. Đo đơn/1.000 người xem, tỷ lệ AI trả lời đúng, số lần rớt luồng.</div>
+      </div>
+      <div class="gate"><b>Hoàn thành khi:</b> 2 tuần chạy thật không sự cố nghiêm trọng; tắt n8n vẫn live bình thường; không có vi phạm chính sách.</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="card">
+      <div class="card-h"><i data-lucide="layers" style="color:var(--primary)"></i><h3>Công nghệ</h3></div>
+      <div class="stack"><span>Next.js · React · TypeScript</span><span>Node.js · TypeScript</span><span>PostgreSQL</span><span>Redis · BullMQ</span><span>FFmpeg</span><span>MediaMTX (relay SRT → RTMP)</span><span>OBS + obs-websocket</span><span>AI Gateway → LLM + TTS tiếng Việt</span><span>GPU worker (nhép miệng)</span><span>S3 / MinIO</span><span>n8n (ngoài đường phát)</span></div>
+    </div>
+    <div class="card">
+      <div class="card-h"><i data-lucide="clipboard-list" style="color:var(--amber)"></i><h3>Bên bạn cần chuẩn bị</h3></div>
+      <ul class="need">
+        <li><i data-lucide="check"></i>Ứng dụng Meta for Developers (duyệt quyền live & bình luận) + dự án Google Cloud (YouTube API)</li>
+        <li><i data-lucide="check"></i>Tài khoản TikTok Shop / Shopee đủ điều kiện LIVE, người dẫn thật cho phiên Hybrid</li>
+        <li><i data-lucide="check"></i>1 VPS relay + máy GPU NVIDIA ~24GB (hoặc thuê GPU) cho AI Host</li>
+        <li><i data-lucide="check"></i>Hợp đồng nhà cung cấp giọng Việt dùng thương mại</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>window.SCREEN = {};</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

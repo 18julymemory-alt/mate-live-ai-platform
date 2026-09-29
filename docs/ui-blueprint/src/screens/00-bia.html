@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>MateLive UI Blueprint v3</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .doc { background: #0f0b1e; color: #fff; display: grid; grid-template-columns: 1fr 640px; }
+  .l { padding: 70px 70px 50px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand .logo-mark { width: 56px; height: 56px; font-size: 30px; border-radius: 16px; }
+  .brand b { font-size: 30px; letter-spacing: -0.5px; }
+  .brand span { display: block; font-size: 12px; letter-spacing: 3px; color: #a9a3cf; font-weight: 600; margin-top: 3px; }
+  h1 { font-size: 78px; line-height: 1.02; letter-spacing: -2.5px; font-weight: 800; margin-top: 70px; }
+  h1 em { font-style: normal; background: linear-gradient(90deg, #8b5cf6, #ff5da2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { font-size: 22px; color: #cfc9ef; margin-top: 22px; max-width: 900px; line-height: 1.5; }
+  .meta { display: flex; gap: 12px; margin-top: 30px; }
+  .meta span { background: #1d1834; border: 1px solid #332b58; border-radius: 10px; padding: 9px 16px; font-weight: 600; font-size: 15px; color: #e9e6ff; }
+  .flow { margin-top: auto; }
+  .flow .h { font-size: 13px; letter-spacing: 2px; color: #a9a3cf; font-weight: 700; margin-bottom: 14px; }
+  .steps { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
+  .steps > div { background: #17142a; border: 1px solid #2a2344; border-radius: 14px; padding: 14px 12px; }
+  .steps b { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, #6d4aff, #b04dff); display: grid; place-items: center; font-size: 14px; margin-bottom: 10px; }
+  .steps .t { font-weight: 700; font-size: 14px; line-height: 1.3; }
+  .steps .s { font-size: 12px; color: #a9a3cf; margin-top: 4px; line-height: 1.4; }
+  .r { position: relative; overflow: hidden; }
+  .r img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .r::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #0f0b1e 0%, rgba(15,11,30,.2) 30%, rgba(15,11,30,0) 60%), linear-gradient(0deg, rgba(15,11,30,.9), rgba(15,11,30,0) 45%); }
+  .idx { position: absolute; left: 40px; right: 40px; bottom: 44px; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 24px; font-size: 13.5px; color: #e9e6ff; }
+  .idx span b { color: #a78bfa; margin-right: 8px; }
+  .idx .h { grid-column: 1 / 3; font-size: 12px; letter-spacing: 2px; color: #a9a3cf; font-weight: 700; margin-bottom: 4px; }
+  .ailbl { position: absolute; right: 24px; top: 24px; z-index: 1; background: rgba(10,8,20,.7); border-radius: 8px; padding: 6px 12px; font-size: 13px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="l">
+    <div class="brand"><div class="logo-mark">M</div><div><b>MateLive</b><span>AI LIVE COMMERCE</span></div></div>
+    <h1>Bộ giao diện <em>MateLive</em><br>bản v3</h1>
+    <div class="sub">Dựng lại từ bản v2 (9 trang): đủ luồng kết nối nhiều tài khoản, phát 4 nền tảng, thời lượng phiên, OBS, sản phẩm & affiliate, nhân vật và giọng AI, kịch bản động, phân loại bình luận tư vấn / chuyển đổi — và kiểm tra chính sách từng nền tảng.</div>
+    <div class="meta"><span>17 màn hình ứng dụng</span><span>1 + 12 giai đoạn code</span><span>29/09/2026</span></div>
+    <div class="flow">
+      <div class="h">LUỒNG LÀM VIỆC</div>
+      <div class="steps">
+        <div><b>1</b><div class="t">Kết nối tài khoản</div><div class="s">Facebook, YouTube, TikTok Shop, Shopee</div></div>
+        <div><b>2</b><div class="t">Thêm sản phẩm</div><div class="s">hàng thật hoặc link affiliate</div></div>
+        <div><b>3</b><div class="t">Hồ sơ tư vấn</div><div class="s">thông tin để AI trả lời đúng</div></div>
+        <div><b>4</b><div class="t">Nhân vật & giọng AI</div><div class="s">giọng Việt bán hàng, có nhãn AI</div></div>
+        <div><b>5</b><div class="t">Kịch bản AI</div><div class="s">đổi liên tục theo bình luận</div></div>
+        <div><b>6</b><div class="t">Tạo phiên</div><div class="s">chế độ, kênh, thời lượng, lịch</div></div>
+        <div><b>7</b><div class="t">Phát & điều khiển</div><div class="s">AI Host · Hybrid · OBS</div></div>
+        <div><b>8</b><div class="t">Bình luận & báo cáo</div><div class="s">lọc chuyển đổi, tối ưu</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="r">
+    <img src="../../assets/img/host-portrait.jpg" alt="">
+    <span class="ailbl">Hình minh họa do AI tạo</span>
+    <div class="idx">
+      <div class="h">NỘI DUNG</div>
+      <span><b>01</b>Đánh giá bản v2</span><span><b>11</b>Tạo phiên live</span>
+      <span><b>02</b>Tổng quan</span><span><b>12</b>Lịch phát sóng</span>
+      <span><b>03</b>Kênh & tài khoản</span><span><b>13</b>Kết nối OBS</span>
+      <span><b>04</b>Kết nối Facebook</span><span><b>14</b>Control Room</span>
+      <span><b>05</b>Sản phẩm & Affiliate</span><span><b>15</b>Bình luận & Chuyển đổi</span>
+      <span><b>06</b>Hồ sơ tư vấn</span><span><b>16</b>Quy tắc trả lời</span>
+      <span><b>07</b>AI nhân vật</span><span><b>17</b>Phân tích & Báo cáo</span>
+      <span><b>08</b>AI giọng nói</span><span><b>18</b>Chính sách & Tuân thủ</span>
+      <span><b>09</b>Kịch bản AI</span><span><b>19</b>Lộ trình code</span>
+      <span><b>10</b>Background & Scene</span><span></span>
+    </div>
+  </div>
+</div>
+<script>window.SCREEN = {};</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

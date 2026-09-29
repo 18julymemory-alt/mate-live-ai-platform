@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>AI nhân vật Studio</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .body { display: grid; grid-template-columns: 500px 400px 1fr; gap: 16px; flex: 1; min-height: 0; }
+  .opts { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .opt { border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; text-align: center; font-size: 11.5px; font-weight: 500; background: #fff; }
+  .opt img { width: 100%; height: 46px; object-fit: cover; display: block; }
+  .opt div { padding: 4px 0; }
+  .opt.on { border-color: var(--primary); color: var(--primary); font-weight: 700; box-shadow: 0 0 0 2px var(--primary-soft); }
+  .seg { display: flex; gap: 8px; }
+  .seg span { flex: 1; text-align: center; border: 1.5px solid var(--line); border-radius: 10px; padding: 7px 0; font-size: 13px; font-weight: 500; }
+  .seg span.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); font-weight: 700; }
+  .pv { position: relative; border-radius: 14px; overflow: hidden; }
+  .pv img { width: 100%; height: 470px; object-fit: cover; display: block; }
+  .pv .lbl { position: absolute; left: 4px; bottom: 6px; min-width: 150px; background: rgba(18,21,40,.72); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 8px; display: flex; gap: 6px; align-items: center; }
+  .pv .hd { position: absolute; right: 2px; top: 6px; padding: 5px 10px; }
+  .vars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .vars img { width: 100%; height: 86px; object-fit: cover; border-radius: 10px; border: 2px solid transparent; }
+  .vars img.on { border-color: var(--primary); }
+  .clip { display: grid; grid-template-columns: 54px 1fr auto; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .clip:last-child { border-bottom: 0; }
+  .clip img { width: 54px; height: 54px; border-radius: 10px; object-fit: cover; }
+  .pl { display: grid; grid-template-columns: 26px 110px 1fr; gap: 8px; align-items: center; font-size: 12.5px; padding: 5px 0; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1><i data-lucide="sparkles" style="width:26px;height:26px;color:var(--primary)"></i>AI nhân vật Studio <span class="badge purple">BETA</span></h1><p>Tạo người dẫn AI cho livestream bán hàng — ngoại hình, tính cách, và kho clip cầm sản phẩm dựng sẵn. Luôn gắn nhãn "Nội dung do AI tạo".</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="library"></i>Thư viện nhân vật (4)</div><div class="btn"><i data-lucide="circle-play"></i>Hướng dẫn</div></div>
+  </div>
+
+  <div class="body">
+    <div class="card col" style="gap:12px">
+      <div class="card-h" style="margin-bottom:0"><h3>Mô tả nhân vật</h3><span class="link"><i data-lucide="wand-sparkles"></i>Gợi ý với AI</span></div>
+      <div class="input area" style="height:84px">Cô gái Việt Nam 23–28 tuổi, gương mặt thân thiện, phong cách chuyên nghiệp gần gũi, áo trắng thanh lịch, tóc dài gợn sóng, hợp thương hiệu mỹ phẩm cao cấp.</div>
+      <div class="grid" style="grid-template-columns:1fr 1.6fr;gap:12px">
+        <div><div class="label">Giới tính</div><div class="seg"><span class="on">Nữ</span><span>Nam</span></div></div>
+        <div><div class="label">Độ tuổi</div><div class="seg"><span>18–22</span><span class="on">23–28</span><span>29–35</span><span>35+</span></div></div>
+      </div>
+      <div><div class="label">Phong cách</div><div class="opts">
+        <div class="opt on"><img src="../../assets/img/style-1.jpg"><div>Chuyên nghiệp</div></div>
+        <div class="opt"><img src="../../assets/img/style-2.jpg"><div>Trẻ trung</div></div>
+        <div class="opt"><img src="../../assets/img/style-3.jpg"><div>Sang trọng</div></div>
+        <div class="opt"><img src="../../assets/img/style-4.jpg"><div>Gần gũi</div></div>
+        <div class="opt"><img src="../../assets/img/style-5.jpg"><div>Năng động</div></div>
+      </div></div>
+      <div><div class="label">Tư thế khi giới thiệu</div><div class="opts">
+        <div class="opt on"><img src="../../assets/img/pose-1.jpg"><div>Giới thiệu</div></div>
+        <div class="opt"><img src="../../assets/img/pose-2.jpg"><div>Cận sản phẩm</div></div>
+        <div class="opt"><img src="../../assets/img/pose-3.jpg"><div>Chỉ vào SP</div></div>
+        <div class="opt"><img src="../../assets/img/pose-4.jpg"><div>So sánh</div></div>
+        <div class="opt"><img src="../../assets/img/pose-5.jpg"><div>Tư vấn</div></div>
+      </div></div>
+      <div><div class="label">Cảm xúc chủ đạo</div><div class="row" style="flex-wrap:wrap;gap:8px"><span class="chip active">Vui vẻ</span><span class="chip">Thân thiện</span><span class="chip">Chuyên gia</span><span class="chip">Nhiệt tình</span><span class="chip">Dịu dàng</span></div></div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+        <div><div class="label">Giọng mặc định</div><div class="input"><img class="avatar" src="../../assets/img/voice-1.jpg" style="width:22px;height:22px">Mai Anh · Nữ miền Nam<i data-lucide="chevron-down" class="right"></i></div></div>
+        <div><div class="label">Nền mặc định</div><div class="input"><img class="thumb" src="../../assets/img/bg-2.jpg" style="width:34px;height:22px;border-radius:5px">Studio mỹ phẩm<i data-lucide="chevron-down" class="right"></i></div></div>
+      </div>
+      <div class="callout purple" style="margin-top:auto"><i data-lucide="scan-face"></i><div><b>Khuôn mặt tạo mới bằng AI.</b> Không dùng khuôn mặt người thật (KOL, nhân viên) nếu chưa có giấy đồng ý — tránh vi phạm quyền hình ảnh.</div></div>
+    </div>
+
+    <div class="card col" style="gap:12px">
+      <div class="card-h" style="margin-bottom:0"><h3>Xem trước</h3><span class="badge green">● Mai Anh (AI)</span><span class="link"><i data-lucide="maximize-2"></i>Toàn màn hình</span></div>
+      <div class="pv"><img src="../../assets/img/host-portrait.jpg"><span class="badge dark hd">HD · 1080p</span><span class="lbl"><i data-lucide="sparkles" style="width:13px;height:13px"></i>Nội dung do AI tạo</span></div>
+      <div class="row"><span class="small semi">Biến thể</span><span class="link small right" style="color:var(--primary);font-weight:600">Tạo biến thể</span></div>
+      <div class="vars"><img class="on" src="../../assets/img/host-var-1.jpg"><img src="../../assets/img/host-var-2.jpg"><img src="../../assets/img/host-var-3.jpg"><img src="../../assets/img/host-var-4.jpg"><img src="../../assets/img/host-var-5.jpg"></div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:10px 12px">
+        <div class="small semi" style="margin-bottom:6px">Hoạt ảnh khi live</div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:6px 10px">
+          <div class="row tiny"><span class="toggle on"></span>Nhép miệng theo giọng</div>
+          <div class="row tiny"><span class="toggle on"></span>Chớp mắt, gật đầu</div>
+          <div class="row tiny"><span class="toggle on"></span>Cử chỉ khi nhấn giá</div>
+          <div class="row tiny"><span class="toggle on"></span>Chèn clip cầm SP</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:auto"><div class="btn sm"><i data-lucide="bookmark"></i>Lưu</div><div class="btn primary sm right"><i data-lucide="play"></i>Dùng cho phiên live</div></div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="clapperboard" style="color:var(--primary)"></i><h3>Kho clip "cầm sản phẩm"</h3><span class="sub">dựng sẵn trước khi live</span><span class="link"><i data-lucide="plus"></i>Dựng clip</span></div>
+        <div class="clip"><img src="../../assets/img/pose-2.jpg"><div><div class="small semi">Serum MieSkin 10X · 3 clip</div><div class="tiny muted">Giới thiệu 20s · Cận sản phẩm 12s · Thoa thử 15s</div></div><span class="badge green">Sẵn sàng</span></div>
+        <div class="clip"><img src="../../assets/img/pose-4.jpg"><div><div class="small semi">Kem chống nắng SPF50+ · 2 clip</div><div class="tiny muted">Đang dựng từ ảnh sản phẩm thật</div><div class="progress" style="margin-top:5px;width:180px"><i style="width:60%"></i></div></div><span class="badge amber">60%</span></div>
+        <div class="clip"><img src="../../assets/img/p-earbuds.jpg"><div><div class="small semi">Tai nghe ANC X9 · chưa có clip</div><div class="tiny muted">Cần 3 ảnh rõ nét các góc của sản phẩm</div></div><span class="btn xs soft">Dựng clip</span></div>
+        <div class="callout info" style="margin-top:8px"><i data-lucide="info"></i><div>Khi live, nhân vật nói theo giọng AI (lip-sync trên GPU); đến đoạn giới thiệu sản phẩm thì chèn clip cầm đúng sản phẩm thật. Không tạo cảnh cầm sản phẩm real-time.</div></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><i data-lucide="user-cog" style="color:var(--teal)"></i><h3>Vai trò & cách nói chuyện</h3></div>
+        <div class="small" style="line-height:1.6">Chuyên viên tư vấn skincare của <b>MateBeauty</b>. Xưng "em", gọi khách "chị/anh", gọi tên người bình luận. Vui vẻ, nhấn vào lợi ích thật, không hứa quá mức, không chê thương hiệu khác.</div>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="shield-check" style="color:var(--green)"></i><h3>Dùng được ở đâu</h3><span class="sub">theo Chính sách & Tuân thủ</span></div>
+        <div class="pl"><span class="plat sm yt"></span><b>YouTube</b><span class="badge green">Được · khai báo nội dung tổng hợp</span></div>
+        <div class="pl"><span class="plat sm fb"></span><b>Facebook</b><span class="badge green">Được · gắn nhãn AI</span></div>
+        <div class="pl"><span class="plat sm tt"></span><b>TikTok Shop</b><span class="badge red">Không làm người dẫn · người thật phải nói</span></div>
+        <div class="pl"><span class="plat sm sp"></span><b>Shopee Live</b><span class="badge amber">Chưa xác nhận · tắt mặc định</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'character',
+  spec: {
+    num: '07', title: 'AI nhân vật Studio', tags: [['fix', 'Cập nhật từ v2 trang 4']], phase: 'GĐ 10',
+    notes: [
+      '"Cầm sản phẩm" làm bằng clip dựng sẵn từ ảnh sản phẩm thật (image-to-video), còn khi live nhân vật chỉ nói + nhép miệng theo giọng — khả thi trên 1 GPU.',
+      'Nhãn "Nội dung do AI tạo" luôn bật; không dùng khuôn mặt người thật nếu chưa có đồng ý bằng văn bản.',
+      'Khung "Dùng được ở đâu": AI Host chạy ở YouTube & Facebook; TikTok Shop cấm giọng/host AI trong LIVE bán hàng (7/2026) nên chỉ Hybrid.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

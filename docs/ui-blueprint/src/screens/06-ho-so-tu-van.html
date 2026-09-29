@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Hồ sơ tư vấn sản phẩm</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .crumb { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+  .crumb svg.lucide { width: 14px; height: 14px; }
+  .body { display: grid; grid-template-columns: 290px 1fr 440px; gap: 16px; flex: 1; min-height: 0; }
+  .sec { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; font-size: 13.5px; font-weight: 500; }
+  .sec.on { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+  .sec .st { margin-left: auto; }
+  .sec svg.lucide { width: 17px; height: 17px; }
+  .ring { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(var(--green) 0 90%, #e8ebf3 90% 100%); display: grid; place-items: center; margin: 4px auto 8px; }
+  .ring > div { width: 94px; height: 94px; border-radius: 50%; background: #fff; display: grid; place-items: center; text-align: center; }
+  .blk { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; }
+  .blk h4 { font-size: 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .blk h4 svg.lucide { width: 17px; height: 17px; color: var(--primary); }
+  .blk h4 .right { font-weight: 500; }
+  .bl { font-size: 13px; line-height: 1.6; padding-left: 16px; }
+  .faq { display: grid; grid-template-columns: 210px 1fr 90px; gap: 10px; font-size: 12.5px; padding: 7px 0; border-bottom: 1px dashed var(--line); align-items: start; }
+  .faq:last-child { border-bottom: 0; }
+  .faq b { font-weight: 600; }
+  .ban { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ban span { background: var(--red-soft); color: var(--red); font-size: 12.5px; font-weight: 600; padding: 5px 10px; border-radius: 8px; text-decoration: line-through; text-decoration-thickness: 1.5px; }
+  .bubble { border-radius: 12px; padding: 10px 12px; font-size: 13px; line-height: 1.55; }
+  .src { display: inline-flex; gap: 4px; align-items: center; font-size: 11.5px; color: var(--primary); background: var(--primary-soft); border-radius: 6px; padding: 2px 7px; margin: 2px 4px 0 0; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div>
+      <div class="crumb">Sản phẩm & Affiliate <i data-lucide="chevron-right"></i> Serum dưỡng trắng MieSkin 10X</div>
+      <h1 style="margin-top:4px">Hồ sơ tư vấn sản phẩm <span class="badge purple">Phiên bản 7</span></h1>
+      <p>Thông tin bên bạn cập nhật ở đây là nguồn duy nhất AI dùng để tư vấn và viết kịch bản. AI không được nói điều gì ngoài hồ sơ.</p>
+    </div>
+    <div class="actions"><div class="btn"><i data-lucide="upload"></i>Nhập từ tài liệu (PDF, Word, link)</div><div class="btn primary"><i data-lucide="save"></i>Lưu & cập nhật cho AI</div></div>
+  </div>
+
+  <div class="body">
+    <div class="card">
+      <div class="ring"><div><div><div style="font-size:26px;font-weight:800;line-height:1.1">90%</div><div class="tiny muted">đủ để AI tư vấn</div></div></div></div>
+      <div class="sec"><i data-lucide="info"></i>Thông tin cơ bản<span class="st"><i data-lucide="circle-check" style="color:var(--green)"></i></span></div>
+      <div class="sec"><i data-lucide="flask-conical"></i>Thành phần / Thông số<span class="st"><i data-lucide="circle-check" style="color:var(--green)"></i></span></div>
+      <div class="sec on"><i data-lucide="sparkles"></i>Điểm nổi bật & phù hợp<span class="st"><i data-lucide="circle-check" style="color:var(--green)"></i></span></div>
+      <div class="sec"><i data-lucide="list-ordered"></i>Cách dùng<span class="st"><i data-lucide="circle-check" style="color:var(--green)"></i></span></div>
+      <div class="sec"><i data-lucide="message-circle-question"></i>Câu hỏi thường gặp<span class="st badge gray">12</span></div>
+      <div class="sec"><i data-lucide="shield-question"></i>Xử lý phản đối<span class="st badge gray">6</span></div>
+      <div class="sec"><i data-lucide="gift"></i>Khuyến mãi & giao hàng<span class="st"><i data-lucide="circle-check" style="color:var(--green)"></i></span></div>
+      <div class="sec"><i data-lucide="ban"></i>Câu AI không được nói<span class="st badge gray">5</span></div>
+      <div class="sec"><i data-lucide="triangle-alert"></i>Chống chỉ định<span class="st badge red">Thiếu</span></div>
+      <div class="hr"></div>
+      <div class="tiny muted" style="line-height:1.6">Cập nhật lần cuối 10:20 hôm nay bởi Minh Anh. Phiên đang live dùng bản mới trong vòng 30 giây.</div>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div class="blk">
+        <h4><i data-lucide="sparkles"></i>Điểm nổi bật (AI nhấn mạnh khi giới thiệu)<span class="right tiny muted">kéo để sắp thứ tự ưu tiên</span></h4>
+        <ul class="bl"><li>Niacinamide 10% + Alpha Arbutin 2% — hỗ trợ làm đều màu da, mờ thâm sau mụn.</li><li>Kết cấu mỏng nhẹ, thấm nhanh, không bết — hợp khí hậu nóng ẩm.</li><li>Đã công bố mỹ phẩm, có số lô và hạn dùng rõ ràng; bán qua Shopee Mall chính hãng.</li></ul>
+        <div class="row" style="margin-top:10px;flex-wrap:wrap;gap:6px"><span class="small semi">Phù hợp:</span><span class="chip">Da dầu</span><span class="chip">Da hỗn hợp</span><span class="chip">Thâm sau mụn</span><span class="chip">Da nhạy cảm — thử trước ở vùng nhỏ</span></div>
+      </div>
+      <div class="blk">
+        <h4><i data-lucide="message-circle-question"></i>Câu hỏi thường gặp<span class="right btn xs"><i data-lucide="plus"></i>Thêm</span></h4>
+        <div class="faq"><b>Da nhạy cảm dùng được không?</b><span>Dùng được, nên thử ở vùng nhỏ 2–3 ngày trước. Nếu đang dùng treatment mạnh thì dùng cách ngày.</span><span class="badge teal">Tư vấn</span></div>
+        <div class="faq"><b>Bao lâu thì thấy hiệu quả?</b><span>Thường sau 4–6 tuần dùng đều, tùy cơ địa. Không cam kết thời gian cụ thể.</span><span class="badge teal">Tư vấn</span></div>
+        <div class="faq"><b>Dùng chung với vitamin C được không?</b><span>Được, nên tách sáng – tối để giảm kích ứng.</span><span class="badge teal">Tư vấn</span></div>
+        <div class="faq"><b>Ship bao lâu, có COD không?</b><span>Giao 2–4 ngày, có COD. Đặt qua link ghim để được giá live.</span><span class="badge pink">Chuyển đổi</span></div>
+      </div>
+      <div class="blk">
+        <h4><i data-lucide="shield-question"></i>Xử lý phản đối</h4>
+        <div class="faq"><b>"Giá hơi cao"</b><span>So với dung tích 30ml dùng 2 tháng → khoảng 7.500đ/ngày; combo trong live đang giảm thêm 15%.</span><span class="badge amber">Giá</span></div>
+        <div class="faq"><b>"Sợ hàng giả"</b><span>Link từ Shopee Mall chính hãng, được kiểm tra trước khi nhận, đổi trả 15 ngày theo chính sách sàn.</span><span class="badge amber">Niềm tin</span></div>
+      </div>
+      <div class="blk">
+        <h4><i data-lucide="gift"></i>Khuyến mãi đang áp dụng<span class="right tiny muted">AI tự ngừng nhắc khi hết hạn</span></h4>
+        <div class="row small" style="flex-wrap:wrap;gap:8px"><span class="badge pink">Giảm 15% combo trong live · đến 23:59 29/09</span><span class="badge teal">Freeship đơn từ 299K</span><span class="badge amber">Tặng mini 5ml cho 50 đơn đầu · còn 18</span></div>
+      </div>
+      <div class="blk" style="margin-bottom:0">
+        <h4><i data-lucide="ban" style="color:var(--red)"></i>Câu AI không được nói<span class="right tiny muted">tránh quảng cáo sai sự thật</span></h4>
+        <div class="ban"><span>Trị dứt điểm nám</span><span>Trắng bật tông sau 7 ngày</span><span>Thay thế thuốc điều trị</span><span>Cam kết 100% hiệu quả</span><span>Chê thương hiệu khác</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column">
+      <div class="card-h"><i data-lucide="flask-conical" style="color:var(--primary)"></i><h3>AI trả lời thử</h3><span class="sub">kiểm tra trước khi live</span></div>
+      <div class="label">Bình luận mẫu của khách</div>
+      <div class="input" style="margin-bottom:12px">Da mình bị mụn ẩn với hơi nhạy cảm dùng được không shop?</div>
+      <div class="row small" style="margin-bottom:8px"><span class="badge teal"><i data-lucide="message-circle-question"></i>Tư vấn sản phẩm</span><span class="badge gray">Độ tin cậy 88%</span></div>
+      <div class="bubble" style="background:var(--primary-soft)">Dạ chị ơi, da nhạy cảm vẫn dùng được serum MieSkin 10X nha. Chị thử trước ở vùng nhỏ 2–3 ngày, nếu da ổn thì dùng mỗi tối. Với mụn ẩn, niacinamide giúp da đều màu và mờ thâm sau mụn, còn mụn đang viêm thì chị nên hỏi thêm bác sĩ da liễu ạ.</div>
+      <div style="margin-top:6px"><span class="src"><i data-lucide="file-text" style="width:12px;height:12px"></i>FAQ 1</span><span class="src"><i data-lucide="file-text" style="width:12px;height:12px"></i>Phù hợp</span><span class="src"><i data-lucide="file-text" style="width:12px;height:12px"></i>Điểm nổi bật 1</span></div>
+      <div class="hr"></div>
+      <div class="label">Bình luận mẫu 2</div>
+      <div class="input" style="margin-bottom:10px">Có trị nám dứt điểm không shop?</div>
+      <div class="bubble" style="background:var(--amber-soft);color:#6b4204">Dạ serum hỗ trợ làm đều màu và mờ thâm, không phải thuốc trị nám nên shop không cam kết trị dứt điểm ạ. Nám lâu năm chị nên gặp bác sĩ da liễu nha.</div>
+      <div style="margin-top:6px"><span class="src" style="color:var(--red);background:var(--red-soft)"><i data-lucide="ban" style="width:12px;height:12px"></i>Đã tránh câu cấm nói</span></div>
+      <div class="callout info" style="margin-top:auto"><i data-lucide="info"></i><div>Câu trả lời luôn kèm nguồn trong hồ sơ. Không tìm thấy thông tin → AI nói "để shop kiểm tra lại" và chuyển cho người vận hành.</div></div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'products',
+  spec: {
+    num: '06', title: 'Hồ sơ tư vấn sản phẩm', tags: [['new', 'MỚI trong v3']], phase: 'GĐ 3 + GĐ 7',
+    notes: [
+      'Nơi bên bạn cập nhật thông tin sản phẩm: điểm nổi bật, phù hợp với ai, câu hỏi thường gặp, xử lý phản đối, khuyến mãi — AI chỉ tư vấn trong phạm vi này.',
+      '"Câu AI không được nói" chặn quảng cáo quá mức (trị dứt điểm, cam kết 100%…) — bảo vệ tài khoản và đúng luật quảng cáo.',
+      'Khung "AI trả lời thử" cho xem trước câu trả lời kèm nguồn trích dẫn trước khi đưa sản phẩm vào phiên live.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

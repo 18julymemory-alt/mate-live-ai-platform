@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Quy tắc trả lời</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .body { display: grid; grid-template-columns: 1fr 440px; gap: 16px; flex: 1; min-height: 0; }
+  .tbl td { vertical-align: top; padding: 11px 10px; font-size: 12.5px; }
+  .tbl td .t { font-weight: 700; font-size: 13.5px; display: flex; gap: 8px; align-items: center; }
+  .tbl td .d { color: var(--muted); font-size: 11.5px; margin-top: 3px; line-height: 1.45; }
+  .tbl tr.conv td { background: #fff6f7; }
+  .tbl tr.conv td:first-child { box-shadow: inset 4px 0 0 var(--red); }
+  .mode { display: inline-flex; border: 1px solid var(--line-2); border-radius: 8px; overflow: hidden; }
+  .mode span { padding: 4px 8px; font-size: 11.5px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+  .mode span.on { background: var(--primary); color: #fff; }
+  .mode span.off { background: #3b4058; color: #fff; }
+  .ch { display: flex; flex-direction: column; gap: 4px; }
+  .ch span { display: flex; gap: 6px; align-items: center; white-space: nowrap; }
+  .ch svg.lucide { width: 14px; height: 14px; }
+  .lim { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+  .lim:last-child { border-bottom: 0; }
+  .never li { list-style: none; display: flex; gap: 8px; font-size: 13px; padding: 4px 0; }
+  .never li svg.lucide { width: 16px; height: 16px; color: var(--red); margin-top: 2px; }
+  .route { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; }
+  .route svg.lucide { width: 14px; height: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Quy tắc trả lời</h1><p>Chọn cách xử lý từng loại bình luận: AI tự động, AI gợi ý để người duyệt, hoặc người trả lời. AI chỉ trả lời bằng tài khoản chính chủ và trong phạm vi hồ sơ sản phẩm.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="history"></i>Lịch sử thay đổi</div><div class="btn primary"><i data-lucide="save"></i>Lưu quy tắc</div></div>
+  </div>
+
+  <div class="body">
+    <div class="card" style="padding:14px 16px">
+      <div class="row" style="margin-bottom:12px"><span class="chip active">Áp dụng: tất cả phiên</span><span class="chip">Phiên AI Host</span><span class="chip">Phiên Hybrid</span><span class="right small muted">Phiên Hybrid: AI chỉ gợi ý cho người dẫn, không tự gửi</span></div>
+      <table class="tbl">
+        <thead><tr><th style="width:260px">Loại bình luận</th><th>Cách trả lời</th><th>Gửi bằng</th><th>Điều kiện để AI tự gửi</th><th>Hành động kèm theo</th><th>Chuyển người khi</th></tr></thead>
+        <tbody>
+          <tr class="conv"><td><div class="t" style="color:var(--red)"><i data-lucide="flame"></i>Chuyển đổi trực tiếp</div><div class="d">"muốn mua", "đặt sao", "còn hàng không, lấy 1"</div></td>
+            <td><div class="mode"><span>AI tự động</span><span class="on">AI gợi ý · duyệt</span><span>Thủ công</span></div></td>
+            <td><div class="ch"><span><i data-lucide="message-square"></i>Text · tài khoản chính chủ</span><span><i data-lucide="mic"></i>Nhắc tên trong live</span></div></td>
+            <td>Tin cậy ≥ 85% · sản phẩm có link hợp lệ</td>
+            <td><span class="badge solid-red">Tô đỏ + chữ đậm</span><div class="d">Đẩy lên đầu, gửi link đang ghim</div></td>
+            <td>Chờ &gt; 60 giây</td></tr>
+          <tr><td><div class="t" style="color:var(--green)"><i data-lucide="circle-check"></i>Chốt đơn</div><div class="d">"chốt 2 combo", "lấy mình 1 hộp"</div></td>
+            <td><div class="mode"><span class="on">AI tự động</span><span>AI gợi ý · duyệt</span><span>Thủ công</span></div></td>
+            <td><div class="ch"><span><i data-lucide="message-square"></i>Text: link + cách đặt</span><span><i data-lucide="mic"></i>Cảm ơn trong live</span></div></td>
+            <td>Tin cậy ≥ 85%</td>
+            <td><span class="badge green">Đếm vào "đã chốt"</span><div class="d">Hàng thật: tạo đơn nháp · Affiliate: gửi link</div></td>
+            <td>Hết hàng / sai giá</td></tr>
+          <tr><td><div class="t" style="color:var(--teal)"><i data-lucide="message-circle-question"></i>Tư vấn sản phẩm</div><div class="d">công dụng, loại da, cách dùng, so sánh</div></td>
+            <td><div class="mode"><span class="on">AI tự động</span><span>AI gợi ý · duyệt</span><span>Thủ công</span></div></td>
+            <td><div class="ch"><span><i data-lucide="mic"></i>Nói trong live (gộp câu giống)</span><span><i data-lucide="message-square"></i>Text khi hỏi riêng</span></div></td>
+            <td>Hồ sơ ≥ 80% · tin cậy ≥ 75% · có nguồn</td>
+            <td><div class="d">Gợi ý kịch bản chèn đoạn giải thích nếu &gt; 10 câu giống</div></td>
+            <td>Không tìm thấy trong hồ sơ</td></tr>
+          <tr><td><div class="t" style="color:var(--amber)"><i data-lucide="circle-help"></i>Hỏi giá / khuyến mãi</div><div class="d">giá, mã giảm, freeship, thời hạn</div></td>
+            <td><div class="mode"><span class="on">AI tự động</span><span>AI gợi ý · duyệt</span><span>Thủ công</span></div></td>
+            <td><div class="ch"><span><i data-lucide="mic"></i>Nói trong live</span><span><i data-lucide="message-square"></i>Text</span></div></td>
+            <td>Giá lấy trực tiếp từ dữ liệu sản phẩm</td>
+            <td><div class="d">Khuyến mãi hết hạn → AI tự ngừng nhắc</div></td>
+            <td>Giá lệch giữa các sàn</td></tr>
+          <tr><td><div class="t" style="color:var(--pink)"><i data-lucide="frown"></i>Khiếu nại</div><div class="d">giao chậm, hàng lỗi, đổi trả</div></td>
+            <td><div class="mode"><span>AI tự động</span><span>AI gợi ý · duyệt</span><span class="off">Thủ công</span></div></td>
+            <td><div class="ch"><span><i data-lucide="message-circle"></i>Mời nhắn riêng</span></div></td>
+            <td class="muted">AI không tự gửi</td>
+            <td><div class="d">Báo ngay cho người phụ trách (Telegram/Zalo)</div></td>
+            <td>Luôn luôn</td></tr>
+          <tr><td><div class="t" style="color:var(--muted)"><i data-lucide="shield-alert"></i>Có SĐT / địa chỉ</div><div class="d">khách tự để lộ thông tin cá nhân</div></td>
+            <td><div class="mode"><span class="on">AI tự động</span><span>AI gợi ý · duyệt</span><span>Thủ công</span></div></td>
+            <td><div class="ch"><span><i data-lucide="message-circle"></i>Mời nhắn riêng</span></div></td>
+            <td>Luôn áp dụng</td>
+            <td><span class="badge amber">Che trên màn hình MateLive</span><div class="d">Ẩn bình luận nếu nền tảng cho phép</div></td>
+            <td>—</td></tr>
+          <tr><td><div class="t" style="color:var(--muted)"><i data-lucide="ban"></i>Spam / quảng cáo</div><div class="d">link lạ, bán hàng chéo</div></td>
+            <td><div class="mode"><span class="on">AI tự động</span><span>AI gợi ý · duyệt</span><span>Thủ công</span></div></td>
+            <td class="muted">Không trả lời</td>
+            <td>Tin cậy ≥ 90%</td>
+            <td><div class="d">Ẩn / chặn bằng quyền quản trị của Trang, kênh</div></td>
+            <td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="hr" style="margin:12px 0"></div>
+      <div class="row" style="flex-wrap:wrap;gap:8px"><span class="small semi">Câu trả lời nhanh cho người vận hành:</span><span class="chip"><i data-lucide="zap"></i>Hướng dẫn đặt qua link ghim</span><span class="chip"><i data-lucide="zap"></i>Mời nhắn riêng để giữ thông tin</span><span class="chip"><i data-lucide="zap"></i>Xin lỗi & hỗ trợ đổi trả</span><span class="chip"><i data-lucide="zap"></i>Hết hàng – gợi ý sản phẩm tương tự</span><span class="chip"><i data-lucide="plus"></i>Thêm mẫu</span></div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="gauge" style="color:var(--primary)"></i><h3>Giới hạn an toàn</h3><span class="sub">tránh bị nền tảng coi là spam</span></div>
+        <div class="lim"><span>Tối đa trả lời text / phút / tài khoản</span><span class="input" style="padding:4px 10px">6</span></div>
+        <div class="lim"><span>Không gửi cùng một câu trong</span><span class="input" style="padding:4px 10px">10 phút</span></div>
+        <div class="lim"><span>Câu trả lời phải có nguồn trong hồ sơ</span><span class="toggle on"></span></div>
+        <div class="lim"><span>Ghi rõ "Trợ lý AI của shop" khi trả lời text</span><span class="toggle on"></span></div>
+      </div>
+      <div class="card">
+        <div class="card-h"><i data-lucide="octagon-x" style="color:var(--red)"></i><h3>MateLive không bao giờ</h3></div>
+        <ul class="never">
+          <li><i data-lucide="x"></i>Đăng bình luận từ tài khoản ảo / tài khoản không phải của shop</li>
+          <li><i data-lucide="x"></i>Tạo bình luận giả, "seeding" hỏi mua, tự thả tim hàng loạt</li>
+          <li><i data-lucide="x"></i>Dùng proxy, đổi IP, giả thiết bị để né kiểm duyệt</li>
+          <li><i data-lucide="x"></i>Hứa công dụng, giá, quà ngoài hồ sơ sản phẩm</li>
+        </ul>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="flask-conical" style="color:var(--teal)"></i><h3>Thử quy tắc</h3></div>
+        <div class="input">shop ơi còn hàng không, lấy mình 1 hộp ship về Đà Nẵng</div>
+        <div class="route"><span class="badge solid-red"><i data-lucide="flame"></i>Chuyển đổi trực tiếp 93%</span><i data-lucide="arrow-right"></i><span class="badge purple">AI gợi ý · duyệt</span><i data-lucide="arrow-right"></i><span class="badge gray">Text + nhắc tên trong live</span></div>
+        <div class="input area" style="margin-top:10px;font-size:12.5px;background:#fbfaff;display:block">Dạ còn hàng chị ơi! Ship Đà Nẵng 2–3 ngày, chị bấm link đang ghim để có giá live 349K nha. <span class="muted">— Trợ lý AI của MateBeauty</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'rules',
+  spec: {
+    num: '16', title: 'Quy tắc trả lời tự động', tags: [['new', 'MỚI trong v3']], phase: 'GĐ 7',
+    notes: [
+      '"AI phản hồi hoặc chúng tôi tự phản hồi tùy mục đích": mỗi loại bình luận chọn AI tự động / AI gợi ý – duyệt / thủ công, kèm ngưỡng tin cậy và khi nào chuyển người.',
+      'Chuyển đổi trực tiếp luôn tô đỏ + đẩy lên đầu; khiếu nại không bao giờ để AI tự gửi.',
+      'Giới hạn tốc độ và danh sách "không bao giờ": không tài khoản ảo, không bình luận giả, không proxy né kiểm duyệt.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

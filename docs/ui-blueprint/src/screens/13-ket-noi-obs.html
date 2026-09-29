@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Kết nối OBS</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .flow { display: grid; grid-template-columns: 250px 40px 220px 40px 250px 40px 1fr; align-items: center; }
+  .node { border: 1.5px solid var(--line-2); border-radius: 14px; padding: 12px 14px; background: #fff; }
+  .node .t { font-weight: 700; display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+  .node .l { font-size: 12px; color: var(--muted); line-height: 1.55; }
+  .node.hl { border-color: var(--primary); background: #fbfaff; }
+  .arr { height: 2px; background: var(--primary); position: relative; margin: 0 4px; }
+  .arr::after { content: ''; position: absolute; right: -2px; top: -5px; border: 6px solid transparent; border-left: 8px solid var(--primary); }
+  .arr span { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 10.5px; color: var(--primary); font-weight: 700; white-space: nowrap; }
+  .fan { display: flex; flex-direction: column; gap: 8px; }
+  .fan .o { display: flex; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; font-size: 12.5px; }
+  .body { display: grid; grid-template-columns: 1fr 1fr 440px; gap: 16px; flex: 1; min-height: 0; }
+  .mc { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+  .mc .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+  .mc .stats div { background: #fafbfd; border-radius: 8px; padding: 6px 8px; }
+  .mc .stats b { display: block; font-size: 14px; }
+  .mc .stats span { font-size: 11px; color: var(--muted); }
+  .st { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+  .st .n { width: 26px; height: 26px; border-radius: 50%; background: var(--green); color: #fff; font-weight: 700; font-size: 12px; display: grid; place-items: center; }
+  .st .n.todo { background: var(--primary-soft); color: var(--primary); }
+  .kv { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .kv div { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+  .kv span { font-size: 11px; color: var(--muted); display: block; }
+  .kv b { font-size: 13px; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Kết nối OBS</h1><p>MateLive Agent cài trên máy chạy OBS, điều khiển OBS qua obs-websocket. Luồng ra đi qua relay (MediaMTX) rồi tách tới từng nền tảng — một kênh rớt không kéo kênh khác.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="download"></i>Tải MateLive Agent (Windows)</div><div class="btn primary"><i data-lucide="plus"></i>Thêm máy OBS</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><i data-lucide="route" style="color:var(--primary)"></i><h3>Đường đi của luồng</h3><span class="sub">phiên Studio / Hybrid</span></div>
+    <div class="flow">
+      <div class="node"><div class="t"><i data-lucide="monitor"></i>Máy OBS · Studio 1</div><div class="l">Camera Sony A7C, mic, màn hình sản phẩm, scene từ MateLive</div></div>
+      <div class="arr"><span>ws</span></div>
+      <div class="node hl"><div class="t"><i data-lucide="bot" style="color:var(--primary)"></i>MateLive Agent</div><div class="l">Đổi scene, bật/tắt nguồn, đổi chữ giá, bắt đầu/dừng phát</div></div>
+      <div class="arr"><span>SRT · 1 luồng</span></div>
+      <div class="node"><div class="t"><i data-lucide="waypoints" style="color:var(--teal)"></i>Relay · MediaMTX</div><div class="l">VPS relay-sg-01 · nhận 1 luồng, tách ra nhiều kênh, tự nối lại</div></div>
+      <div class="arr"><span>RTMP(S)</span></div>
+      <div class="fan">
+        <div class="o"><span class="plat sm yt"></span>YouTube · MateBeauty Channel<span class="badge green right">● 6,0 Mbps</span></div>
+        <div class="o"><span class="plat sm fb"></span>Facebook · MateBeauty Official<span class="badge green right">● 6,0 Mbps</span></div>
+        <div class="o"><span class="plat sm tt"></span>TikTok Shop · phiên riêng (9:16)<span class="badge gray right">Không dùng chung luồng</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="card">
+      <div class="card-h"><i data-lucide="monitor" style="color:var(--primary)"></i><h3>Máy OBS</h3><span class="sub">3 máy</span></div>
+      <div class="mc"><div class="row"><div class="icon-box ib-green" style="width:36px;height:36px"><i data-lucide="monitor-check"></i></div><div><div class="semi">Studio 1 <span class="badge green">● Online</span></div><div class="tiny muted">192.168.1.100 · OBS 32.2 · WebSocket 5 · NVENC</div></div><span class="badge solid-red right">Đang phát</span></div>
+        <div class="stats"><div><b>34%</b><span>CPU</span></div><div><b>0,02%</b><span>rớt khung</span></div><div><b>&lt; 300ms</b><span>độ trễ lệnh</span></div><div><b>8 scene</b><span>đã đồng bộ</span></div></div></div>
+      <div class="mc"><div class="row"><div class="icon-box ib-green" style="width:36px;height:36px"><i data-lucide="monitor-check"></i></div><div><div class="semi">Studio 2 · bàn Thảo <span class="badge green">● Online</span></div><div class="tiny muted">192.168.1.101 · OBS 32.2 · bố cục dọc 9:16</div></div><span class="badge solid-red right">TikTok Hybrid</span></div>
+        <div class="stats"><div><b>41%</b><span>CPU</span></div><div><b>0%</b><span>rớt khung</span></div><div><b>&lt; 250ms</b><span>độ trễ lệnh</span></div><div><b>5 scene</b><span>đã đồng bộ</span></div></div></div>
+      <div class="mc" style="background:#fafbfd"><div class="row"><div class="icon-box ib-red" style="width:36px;height:36px"><i data-lucide="monitor-x"></i></div><div><div class="semi">Laptop Quân <span class="badge gray">● Offline</span></div><div class="tiny muted">lần cuối 2 giờ trước · cần mở OBS trước 19:45</div></div><span class="btn xs right">Gửi nhắc</span></div></div>
+      <div class="callout purple" style="margin-top:4px"><i data-lucide="key-round"></i><div>Mã ghép nối máy mới: <b style="font-size:16px;letter-spacing:2px">482 913</b> · hết hạn sau 10 phút. Nhập mã này trong MateLive Agent trên máy OBS.</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><i data-lucide="list-ordered" style="color:var(--green)"></i><h3>Cài đặt lần đầu</h3><span class="sub">khoảng 5 phút</span></div>
+      <div class="st"><span class="n">✓</span><div><b>Bật WebSocket trong OBS</b><div class="tiny muted">Công cụ → Cài đặt máy chủ WebSocket → bật, đặt mật khẩu</div></div></div>
+      <div class="st"><span class="n">✓</span><div><b>Cài MateLive Agent và ghép nối</b><div class="tiny muted">Nhập mã ghép nối 6 số hiện trên màn hình này</div></div></div>
+      <div class="st"><span class="n">✓</span><div><b>Ghép scene MateLive với scene OBS</b><div class="tiny muted">Giới thiệu → ML-01 Intro · Demo → ML-02 Demo · Ưu đãi → ML-03 Offer · Chốt đơn → ML-04 Close</div></div></div>
+      <div class="st"><span class="n todo">4</span><div><b>Đầu ra: SRT tới relay</b><div class="tiny muted">MateLive tự điền địa chỉ & khóa, không cần dán stream key từng nền tảng vào OBS</div></div></div>
+      <div class="st" style="border:0"><span class="n todo">5</span><div><b>Phát thử 30 giây</b><div class="tiny muted">Kiểm tra hình, tiếng, độ trễ trước phiên đầu tiên</div></div></div>
+      <div class="callout info" style="margin-top:6px"><i data-lucide="info"></i><div>Mật khẩu WebSocket và khóa SRT được mã hóa; Agent chỉ nhận lệnh từ MateLive của workspace này.</div></div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="settings-2" style="color:var(--primary)"></i><h3>Thông số đầu ra</h3><span class="sub">Studio 1</span></div>
+        <div class="kv">
+          <div><span>Độ phân giải</span><b>1920×1080 · 30 fps</b></div>
+          <div><span>Bố cục</span><b>16:9 + bản 9:16</b></div>
+          <div><span>Mã hóa</span><b>H.264 · NVENC</b></div>
+          <div><span>Bitrate</span><b>6.000 kbps · CBR</b></div>
+          <div><span>Keyframe</span><b>2 giây</b></div>
+          <div><span>Âm thanh</span><b>AAC 160 kbps · 48 kHz</b></div>
+        </div>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="activity" style="color:var(--green)"></i><h3>Sức khỏe luồng · 10 phút</h3></div>
+        <svg viewBox="0 0 400 110" width="100%" height="170" preserveAspectRatio="none">
+          <polyline fill="none" stroke="#6d4aff" stroke-width="2.5" points="0,40 20,38 40,42 60,39 80,41 100,37 120,40 140,39 160,62 180,44 200,40 220,38 240,41 260,39 280,40 300,38 320,39 340,41 360,39 380,40 400,38"/>
+          <line x1="0" y1="90" x2="400" y2="90" stroke="#eceef5"/>
+          <text x="0" y="106" font-size="10" fill="#9aa0b6">12:22</text><text x="360" y="106" font-size="10" fill="#9aa0b6">12:32</text>
+          <text x="164" y="78" font-size="10" fill="#d97706">sụt 1 lần · đã tự hồi</text>
+        </svg>
+        <div class="row small" style="gap:16px"><span><b>8,2</b> Mbps tải lên</span><span><b>0</b> lần nối lại</span><span><b>1,9s</b> trễ tới khán giả</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'obs',
+  spec: {
+    num: '13', title: 'Kết nối OBS', tags: [['new', 'MỚI trong v3 (mở rộng thẻ OBS Bridge của v2)']], phase: 'GĐ 5',
+    notes: [
+      'OBS chỉ đẩy 1 luồng SRT tới relay (MediaMTX); relay tách ra từng nền tảng với worker riêng → Facebook rớt không làm YouTube rớt, máy OBS nhẹ hơn.',
+      'MateLive Agent điều khiển OBS qua obs-websocket (có sẵn từ OBS 28): đổi scene, nguồn, chữ giá, bắt đầu/dừng — từ Control Room.',
+      'Quản lý nhiều máy OBS (mỗi người dẫn Hybrid một máy) và nhắc mở máy trước giờ phát.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

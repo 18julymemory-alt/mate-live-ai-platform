@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Kết nối tài khoản Facebook</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .crumb { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+  .crumb svg.lucide { width: 14px; height: 14px; }
+  .ptabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .ptab { border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; gap: 12px; align-items: center; background: #fff; }
+  .ptab.on { border-color: var(--primary); background: var(--primary-soft); box-shadow: 0 0 0 3px #efeaff; }
+  .ptab .t { font-weight: 700; } .ptab .s { font-size: 12px; color: var(--muted); }
+  .body { display: grid; grid-template-columns: 1fr 470px; gap: 16px; flex: 1; min-height: 0; }
+  .pg { display: grid; grid-template-columns: 26px 44px 1fr 120px 190px 130px; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; }
+  .pg > .badge { justify-self: start; }
+  .pg.sel { border-color: var(--primary-line); background: #fbfaff; }
+  .pg img, .pg .ph { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+  .perm { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  .perm .p { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+  .perm .p svg.lucide { color: var(--green); width: 17px; height: 17px; margin-top: 1px; }
+  .how td { font-size: 12.5px; vertical-align: top; }
+  .how td:first-child { width: 120px; }
+  .chk { display: flex; gap: 10px; align-items: center; padding: 7px 0; font-size: 13px; border-bottom: 1px dashed var(--line); }
+  .chk:last-child { border-bottom: 0; }
+  .chk svg.lucide { width: 17px; height: 17px; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div>
+      <div class="crumb">Kênh & tài khoản <i data-lucide="chevron-right"></i> Kết nối tài khoản mới</div>
+      <h1 style="margin-top:4px"><span class="plat lg fb"></span>Kết nối tài khoản Facebook</h1>
+      <p>Đăng nhập bằng Facebook Login chính thức, chọn các Trang muốn livestream, cấp quyền rồi kiểm tra phát thử. MateLive không hỏi và không lưu mật khẩu Facebook.</p>
+    </div>
+    <div class="actions"><div class="btn"><i data-lucide="x"></i>Hủy</div></div>
+  </div>
+
+  <div class="ptabs">
+    <div class="ptab on"><span class="plat lg fb"></span><div><div class="t">Facebook</div><div class="s">Trang: Facebook Login (API) · Cá nhân: stream key</div></div></div>
+    <div class="ptab"><span class="plat lg yt"></span><div><div class="t">YouTube</div><div class="s">Đăng nhập Google (API) · tự tạo phiên</div></div></div>
+    <div class="ptab"><span class="plat lg tt"></span><div><div class="t">TikTok Shop</div><div class="s">Server URL + stream key từ LIVE Studio</div></div></div>
+    <div class="ptab"><span class="plat lg sp"></span><div><div class="t">Shopee Live</div><div class="s">RTMP URL + stream key (phát bằng OBS)</div></div></div>
+  </div>
+
+  <div class="card" style="padding:16px 22px">
+    <div class="stepper">
+      <div class="step done"><div class="n">✓</div><div class="t">Đăng nhập Meta</div><div class="s">Nguyễn Minh Anh · Facebook Login</div></div>
+      <div class="step cur"><div class="n">2</div><div class="t">Chọn Trang / tài khoản</div><div class="s">Chọn nhiều Trang cùng lúc</div></div>
+      <div class="step"><div class="n">3</div><div class="t">Cấp quyền</div><div class="s">Phát live, đọc & trả lời bình luận</div></div>
+      <div class="step"><div class="n">4</div><div class="t">Kiểm tra phát thử</div><div class="s">Phát 10 giây ở chế độ "Chỉ mình tôi"</div></div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="card" style="display:flex;flex-direction:column">
+      <div class="card-h"><h3>Bước 2 · Chọn Trang muốn livestream</h3><span class="sub">Tìm thấy 4 Trang bạn quản lý</span><span class="link">Làm mới danh sách <i data-lucide="refresh-cw"></i></span></div>
+      <div class="pg sel"><span class="check on"></span><img src="../../assets/img/voice-1.jpg"><div><div class="semi">MateBeauty Official <i data-lucide="badge-check" style="width:14px;height:14px;color:var(--fb)"></i></div><div class="tiny muted">125K theo dõi · Mỹ phẩm</div></div><span class="badge purple">Quản trị viên</span><span class="badge green"><i data-lucide="circle-check"></i>Đủ điều kiện livestream</span><span class="badge gray">Mới</span></div>
+      <div class="pg sel"><span class="check on"></span><img src="../../assets/img/voice-4.jpg"><div><div class="semi">MateFashion Store</div><div class="tiny muted">48K theo dõi · Thời trang</div></div><span class="badge purple">Quản trị viên</span><span class="badge green"><i data-lucide="circle-check"></i>Đủ điều kiện livestream</span><span class="badge amber">Kết nối lại</span></div>
+      <div class="pg"><span class="check"></span><div class="ph" style="background:#0f766e;color:#fff;display:grid;place-items:center;font-weight:800">H</div><div><div class="semi">MateHome Việt Nam</div><div class="tiny muted">9,6K theo dõi · Gia dụng</div></div><span class="badge gray">Biên tập viên</span><span class="badge amber"><i data-lucide="triangle-alert"></i>Cần quyền quản trị để live</span><span></span></div>
+      <div class="pg"><span class="check"></span><div class="ph" style="background:#db2777;color:#fff;display:grid;place-items:center;font-weight:800">K</div><div><div class="semi">Mate Kids</div><div class="tiny muted">Trang mới tạo · 40 theo dõi</div></div><span class="badge purple">Quản trị viên</span><span class="badge red"><i data-lucide="circle-x"></i>Chưa đủ điều kiện của Meta</span><span></span></div>
+
+      <div class="hr"></div>
+      <div class="row" style="align-items:flex-start;gap:14px">
+        <span class="check"></span>
+        <div class="grow">
+          <div class="semi">Thêm Trang cá nhân (phát bằng stream key)</div>
+          <div class="small muted" style="margin-top:2px">Lấy Server URL + Stream key trong Live Producer của Facebook rồi dán vào. Trang cá nhân không có API bình luận → bình luận do người vận hành xử lý.</div>
+          <div class="row" style="margin-top:8px"><div class="input grow" style="color:var(--muted-2)"><i data-lucide="globe"></i>rtmps://live-api-s.facebook.com:443/rtmp/</div><div class="input" style="width:260px;color:var(--muted-2)"><i data-lucide="key-round"></i>Dán stream key · được mã hóa</div></div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <div class="card-h" style="margin-bottom:8px"><h3 style="font-size:15px">Quyền MateLive sẽ xin ở bước 3</h3><span class="sub">ứng dụng cần được Meta duyệt (App Review) trước khi dùng thật</span></div>
+      <div class="perm">
+        <div class="p"><i data-lucide="circle-check"></i><div><b>Phát video trực tiếp lên Trang</b><div class="tiny muted">tạo phiên live, lấy luồng RTMPS tự động</div></div></div>
+        <div class="p"><i data-lucide="circle-check"></i><div><b>Đọc bình luận & cảm xúc trong live</b><div class="tiny muted">để AI phân loại tư vấn / chuyển đổi</div></div></div>
+        <div class="p"><i data-lucide="circle-check"></i><div><b>Trả lời bình luận dưới tên Trang</b><div class="tiny muted">chỉ bằng tài khoản Trang chính chủ</div></div></div>
+        <div class="p"><i data-lucide="circle-check"></i><div><b>Đọc số liệu người xem</b><div class="tiny muted">để báo cáo và tối ưu lịch phát</div></div></div>
+      </div>
+
+      <div class="row" style="margin-top:auto;padding-top:14px">
+        <div class="btn"><i data-lucide="arrow-left"></i>Quay lại</div>
+        <span class="small muted right">Đã chọn 2 Trang</span>
+        <div class="btn primary">Tiếp tục: Cấp quyền <i data-lucide="arrow-right"></i></div>
+      </div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="list-checks" style="color:var(--primary)"></i><h3>Bước 4 sẽ kiểm tra</h3></div>
+        <div class="chk"><i data-lucide="circle-check" style="color:var(--green)"></i>Token hợp lệ, còn hạn, đủ quyền</div>
+        <div class="chk"><i data-lucide="circle-check" style="color:var(--green)"></i>Phát thử 10 giây ở chế độ "Chỉ mình tôi"</div>
+        <div class="chk"><i data-lucide="circle-check" style="color:var(--green)"></i>Nhận được bình luận thử trong 5 giây</div>
+        <div class="chk"><i data-lucide="circle-check" style="color:var(--green)"></i>Trả lời thử dưới tên Trang, rồi tự xóa</div>
+        <div class="chk"><i data-lucide="circle-check" style="color:var(--green)"></i>Băng thông tải lên ≥ 6 Mbps (1080p30)</div>
+      </div>
+      <div class="card">
+        <div class="card-h"><i data-lucide="route" style="color:var(--teal)"></i><h3>Các nền tảng khác kết nối thế nào</h3></div>
+        <table class="tbl how">
+          <tr><td><div class="row"><span class="plat sm yt"></span><b>YouTube</b></div></td><td>Đăng nhập Google → chọn kênh → MateLive tự tạo phiên, lấy key, đọc & trả lời chat qua API.</td></tr>
+          <tr><td><div class="row"><span class="plat sm tt"></span><b>TikTok Shop</b></div></td><td>Tài khoản phải đủ điều kiện LIVE. Lấy Server URL + key trong LIVE Studio / Seller Center, dán vào mỗi phiên. Không có API bình luận chính thức.</td></tr>
+          <tr><td><div class="row"><span class="plat sm sp"></span><b>Shopee Live</b></div></td><td>Seller Centre → Shopee Live → tạo phiên, chọn phát bằng OBS → dán RTMP URL + key. API Livestream của Shopee chưa mở cho Việt Nam.</td></tr>
+        </table>
+      </div>
+      <div class="callout warn"><i data-lucide="shield-alert"></i><div><b>Chỉ tài khoản chính chủ hoặc được ủy quyền.</b> MateLive không nhận đăng nhập bằng mật khẩu, không hỗ trợ "ních ảo" hay tài khoản dùng để tự bình luận — các nền tảng coi đó là tương tác giả và có thể khóa luôn tài khoản shop thật.</div></div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'accounts',
+  spec: {
+    num: '04', title: 'Kết nối tài khoản Facebook', tags: [['new', 'MỚI trong v3']], phase: 'GĐ 2',
+    notes: [
+      'Phần v2 còn thiếu: luồng "đưa tài khoản vào". Facebook Trang dùng Facebook Login (OAuth) — chọn nhiều Trang một lần, không lưu mật khẩu.',
+      'Trang cá nhân vẫn phát được bằng stream key từ Live Producer, nhưng không đọc/trả lời bình luận tự động qua API.',
+      'Tab YouTube / TikTok Shop / Shopee dùng cùng khung 4 bước; TikTok & Shopee là dán stream key vì chưa có API chính thức ở Việt Nam.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Phân tích & Báo cáo</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .kpis { grid-template-columns: repeat(6, 1fr); }
+  .kpis .card { padding: 12px 16px; }
+  .kpi .v { font-size: 24px; }
+  .r2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+  .r3 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; flex: 1; min-height: 0; }
+  .chart { position: relative; height: 175px; display: grid; grid-template-columns: 44px 1fr; }
+  .yax { display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: var(--muted-2); padding-bottom: 20px; text-align: right; padding-right: 8px; }
+  .plot { position: relative; border-left: 1px solid var(--line); }
+  .plot .gl { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--line); }
+  .bars { position: absolute; left: 8px; right: 8px; top: 0; bottom: 20px; display: flex; align-items: flex-end; gap: 10px; }
+  .bars div { flex: 1; background: #b7a6ff; border-radius: 4px 4px 0 0; position: relative; }
+  .bars div.hl { background: var(--primary); }
+  .bars div.hl::after { content: attr(data-v); position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--text); white-space: nowrap; }
+  .xax { position: absolute; left: 8px; right: 8px; bottom: 0; display: flex; gap: 10px; font-size: 10.5px; color: var(--muted); }
+  .xax span { flex: 1; text-align: center; }
+  .fun { display: grid; grid-template-columns: 170px 1fr 70px; gap: 10px; align-items: center; padding: 4px 0; font-size: 13px; }
+  .fun .b { height: 22px; border-radius: 0 4px 4px 0; background: var(--primary); }
+  .fun .b.l2 { background: #8b72ff; } .fun .b.l3 { background: #a896ff; } .fun .b.l4 { background: #c3b7ff; } .fun .b.l5 { background: #dcd4ff; }
+  .fun b { text-align: right; }
+  .tbl td { padding: 6px 10px; }
+  .ib { display: flex; align-items: center; gap: 8px; }
+  .ib i { display: block; height: 8px; border-radius: 0 4px 4px 0; background: var(--primary); }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tile { border: 1px solid var(--line); border-radius: 12px; padding: 7px 12px; }
+  .tile b { font-size: 18px; display: block; letter-spacing: -0.4px; }
+  .tile span { font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Phân tích & Báo cáo</h1><p>Hai lớp số liệu tách riêng: bán hàng (từ nền tảng và báo cáo affiliate) và kỹ thuật (luồng, AI). Báo cáo sau mỗi phiên tự gửi qua n8n.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="calendar"></i>16/09 – 29/09/2026<i data-lucide="chevron-down"></i></div><div class="btn"><i data-lucide="filter"></i>Tất cả kênh</div><div class="btn primary"><i data-lucide="download"></i>Xuất báo cáo</div></div>
+  </div>
+
+  <div class="kpis grid">
+    <div class="card kpi"><div><div class="t">Giờ live</div><div class="v">71,5h</div><div class="s">24 phiên · 14 ngày</div></div></div>
+    <div class="card kpi"><div><div class="t">Người xem (lượt)</div><div class="v">186K <span class="d">↑ 22%</span></div><div class="s">xem trung bình 3 phút 40 giây</div></div></div>
+    <div class="card kpi"><div><div class="t">Chuyển đổi trực tiếp</div><div class="v">1.124</div><div class="s">bình luận muốn mua</div></div></div>
+    <div class="card kpi"><div><div class="t">Đơn hàng</div><div class="v">2.310 <span class="d">↑ 18%</span></div><div class="s">1,24% người xem đặt hàng</div></div></div>
+    <div class="card kpi"><div><div class="t">Doanh thu (GMV)</div><div class="v">412tr</div><div class="s">từ báo cáo của sàn</div></div></div>
+    <div class="card kpi"><div><div class="t">Hoa hồng affiliate</div><div class="v">38,2tr <span class="d">↑ 9%</span></div><div class="s">534K / giờ live</div></div></div>
+  </div>
+
+  <div class="r2">
+    <div class="card">
+      <div class="card-h"><i data-lucide="chart-column" style="color:var(--primary)"></i><h3>Doanh thu theo ngày</h3><span class="sub">triệu đồng · tất cả kênh</span><span class="link">Xem bảng số liệu <i data-lucide="table"></i></span></div>
+      <div class="chart">
+        <div class="yax"><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span></div>
+        <div class="plot">
+          <div class="gl" style="top:0"></div><div class="gl" style="top:19%"></div><div class="gl" style="top:38%"></div><div class="gl" style="top:57%"></div><div class="gl" style="top:76%"></div>
+          <div class="bars">
+            <div style="height:38%"></div><div style="height:44%"></div><div style="height:36%"></div><div style="height:52%"></div><div style="height:48%"></div><div style="height:66%"></div><div style="height:58%"></div>
+            <div style="height:40%"></div><div style="height:50%"></div><div style="height:46%"></div><div style="height:62%"></div><div style="height:55%"></div><div class="hl" data-v="45,6tr" style="height:91%"></div><div style="height:60%"></div>
+          </div>
+          <div class="xax"><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h"><i data-lucide="filter" style="color:var(--primary)"></i><h3>Phễu chuyển đổi</h3><span class="sub">14 ngày</span></div>
+      <div class="fun"><span>Người xem</span><div class="b" style="width:100%"></div><b>186K</b></div>
+      <div class="fun"><span>Bình luận</span><div class="b l2" style="width:46%"></div><b>18,4K</b></div>
+      <div class="fun"><span>Nhấp link sản phẩm</span><div class="b l3" style="width:30%"></div><b>9,8K</b></div>
+      <div class="fun"><span>Chuyển đổi trực tiếp</span><div class="b l4" style="width:12%"></div><b>1.124</b></div>
+      <div class="fun"><span>Đơn hàng</span><div class="b l5" style="width:15%"></div><b>2.310</b></div>
+      <div class="tiny muted" style="margin-top:6px">Đơn hàng lớn hơn số bình luận chuyển đổi vì nhiều khách đặt qua link ghim mà không bình luận.</div>
+    </div>
+  </div>
+
+  <div class="r3">
+    <div class="card" style="padding:14px 16px">
+      <div class="card-h"><i data-lucide="radio" style="color:var(--primary)"></i><h3>Theo nền tảng & chế độ phát</h3></div>
+      <table class="tbl">
+        <thead><tr><th>Kênh</th><th>Chế độ</th><th>Giờ live</th><th>Người xem</th><th>Đơn / 1.000 người xem</th><th>Doanh thu</th><th>Hoa hồng / giờ</th></tr></thead>
+        <tbody>
+          <tr><td><div class="row"><span class="plat sm fb"></span>Facebook</div></td><td><span class="badge purple">AI Host</span></td><td>24h</td><td>82K</td><td><div class="ib"><i style="width:70px"></i>11,2</div></td><td class="semi">142tr</td><td>480K</td></tr>
+          <tr><td><div class="row"><span class="plat sm yt"></span>YouTube</div></td><td><span class="badge purple">AI Host</span></td><td>24h</td><td>31K</td><td><div class="ib"><i style="width:52px"></i>8,4</div></td><td class="semi">58tr</td><td>310K</td></tr>
+          <tr><td><div class="row"><span class="plat sm tt"></span>TikTok Shop</div></td><td><span class="badge teal">Hybrid</span></td><td>13,5h</td><td>54K</td><td><div class="ib"><i style="width:100px"></i>16,1</div></td><td class="semi">156tr</td><td>890K</td></tr>
+          <tr><td><div class="row"><span class="plat sm sp"></span>Shopee Live</div></td><td><span class="badge teal">Hybrid</span></td><td>10h</td><td>19K</td><td><div class="ib"><i style="width:88px"></i>14,3</div></td><td class="semi">56tr</td><td>620K</td></tr>
+        </tbody>
+      </table>
+      <div class="callout purple" style="margin-top:12px"><i data-lucide="sparkles"></i><div><b>Nhận định:</b> phiên Hybrid (người thật + AI nhắc) cho tỷ lệ đơn cao hơn AI Host ~1,5 lần. Nên dùng AI Host để phủ khung giờ vắng, dồn người dẫn thật vào 19:00–22:00.</div></div>
+      <div class="card-h" style="margin:14px 0 8px"><h3 style="font-size:15px">Sản phẩm bán tốt nhất</h3></div>
+      <table class="tbl">
+        <thead><tr><th>Sản phẩm</th><th>Nguồn</th><th>Đơn</th><th>Doanh thu</th><th>Hoa hồng</th></tr></thead>
+        <tbody>
+          <tr><td><div class="row"><img class="thumb" src="../../assets/img/p-serum.jpg" style="width:28px;height:28px;border-radius:6px">Serum MieSkin 10X</div></td><td><span class="badge purple">Affiliate</span></td><td>280</td><td>97,7tr</td><td class="semi">19,5tr</td></tr>
+          <tr><td><div class="row"><img class="thumb" src="../../assets/img/p-airfryer.jpg" style="width:28px;height:28px;border-radius:6px">Nồi chiên Kalite 5L</div></td><td><span class="badge green">Hàng thật</span></td><td>96</td><td>191tr</td><td class="muted">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="brain" style="color:var(--primary)"></i><h3>Chất lượng AI</h3></div>
+        <div class="tiles">
+          <div class="tile"><b>94%</b><span>câu hỏi AI tự trả lời</span></div>
+          <div class="tile"><b>1,8s</b><span>thời gian trả lời trung bình</span></div>
+          <div class="tile"><b>4%</b><span>câu trả lời bị người sửa</span></div>
+          <div class="tile"><b>0</b><span>lần nói "câu cấm"</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><i data-lucide="activity" style="color:var(--green)"></i><h3>Kỹ thuật</h3></div>
+        <div class="tiles">
+          <div class="tile"><b>99,6%</b><span>thời gian luồng ổn định</span></div>
+          <div class="tile"><b>7</b><span>lần tự nối lại (đều thành công)</span></div>
+          <div class="tile"><b>0,03%</b><span>khung hình rớt</span></div>
+          <div class="tile"><b>1 lần</b><span>phiên lỡ do token hết hạn</span></div>
+        </div>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="workflow" style="color:var(--teal)"></i><h3>Báo cáo tự động (n8n)</h3></div>
+        <div class="row small" style="padding:4px 0"><i data-lucide="send" style="width:15px;height:15px;color:var(--teal)"></i>Tóm tắt sau mỗi phiên → Telegram nhóm vận hành</div>
+        <div class="row small" style="padding:4px 0"><i data-lucide="file-spreadsheet" style="width:15px;height:15px;color:var(--teal)"></i>Doanh thu & hoa hồng hằng ngày → Google Sheets</div>
+        <div class="row small" style="padding:4px 0"><i data-lucide="bell" style="width:15px;height:15px;color:var(--teal)"></i>Cảnh báo rớt luồng / token hết hạn → Zalo</div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'analytics',
+  spec: {
+    num: '17', title: 'Phân tích & Báo cáo', tags: [['new', 'MỚI trong v3']], phase: 'GĐ 12',
+    notes: [
+      'Số liệu bán hàng lấy từ nền tảng và báo cáo affiliate của sàn; số liệu kỹ thuật lấy từ worker, relay — không trộn nguồn.',
+      'So sánh theo nền tảng và chế độ phát (AI Host vs Hybrid) để quyết định dồn người dẫn thật vào đâu.',
+      'Báo cáo và cảnh báo tự động qua n8n (Telegram, Zalo, Google Sheets) — n8n không nằm trên đường phát, tắt n8n không làm dừng live.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

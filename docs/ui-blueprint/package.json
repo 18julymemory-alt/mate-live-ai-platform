@@ -1,0 +1,16 @@
+{
+  "name": "matelive-ui-blueprint",
+  "private": true,
+  "version": "3.0.0",
+  "description": "MateLive UI Blueprint v3 — HTML mockups rendered to PNG + PDF",
+  "type": "module",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/be-vietnam-pro": "^5.0.0",
+    "lucide": "^1.48.0",
+    "pdf-lib": "^1.17.1",
+    "playwright": "1.56.1"
+  }
+}
