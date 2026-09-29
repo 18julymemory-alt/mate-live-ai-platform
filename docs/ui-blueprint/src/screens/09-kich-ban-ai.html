@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Kịch bản AI</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .body { display: grid; grid-template-columns: 1fr 440px 400px; gap: 16px; flex: 1; min-height: 0; }
+  .tlbar { display: flex; height: 34px; border-radius: 10px; overflow: hidden; gap: 2px; margin: 4px 0 6px; }
+  .tlbar div { display: grid; place-items: center; color: #fff; font-size: 11px; font-weight: 700; white-space: nowrap; overflow: hidden; }
+  .tlbar .cur { box-shadow: inset 0 0 0 3px #121528; }
+  .ticks { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+  .seg { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; align-items: start; }
+  .seg .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 12px; }
+  .seg .t { font-weight: 700; font-size: 13.5px; }
+  .seg .s { font-size: 12px; color: var(--muted); }
+  .seg.on { border-color: var(--primary); background: #fbfaff; box-shadow: 0 0 0 3px var(--primary-soft); }
+  .line { border-radius: 10px; padding: 8px 10px; font-size: 12.5px; line-height: 1.55; margin-top: 8px; }
+  .line.old { background: #f5f6fa; color: var(--muted); text-decoration: line-through; }
+  .line.new { background: var(--primary-soft); color: #2d1a86; }
+  .ins { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+  .ins .h { display: flex; gap: 8px; align-items: center; font-weight: 700; font-size: 13px; }
+  .ins .b { font-size: 12.5px; color: var(--text-2); margin: 6px 0 8px; line-height: 1.5; }
+  .rule { display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+  .rule:last-child { border-bottom: 0; }
+  .tp { background: #0f0b1e; color: #fff; border-radius: 12px; padding: 14px 16px; }
+  .tp .now { font-size: 17px; font-weight: 700; line-height: 1.5; }
+  .tp .now b { color: #ffd166; }
+  .tp .nx { font-size: 12.5px; color: #a9a3cf; margin-top: 8px; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Kịch bản AI</h1><p>Kịch bản theo giai đoạn cho cả phiên. AI viết lại liên tục theo bình luận và số liệu người xem — không phát lặp nguyên văn.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="library"></i>Thư viện kịch bản</div><div class="btn"><i data-lucide="wand-sparkles"></i>Tạo từ sản phẩm</div><div class="btn primary"><i data-lucide="play"></i>Áp dụng cho phiên</div></div>
+  </div>
+
+  <div class="body">
+    <div class="card" style="overflow:hidden">
+      <div class="card-h"><h3>Đẹp rạng rỡ cùng MateBeauty</h3><span class="badge purple"><i data-lucide="bot"></i>AI Host</span><span class="badge gray">2 giờ · 12 sản phẩm</span><span class="link">v14 · AI sửa 2 phút trước</span></div>
+      <div class="tlbar">
+        <div style="width:4%;background:#8b5cf6">1</div>
+        <div style="width:14%;background:#6d4aff">Serum</div>
+        <div style="width:8%;background:#0d9488">Demo</div>
+        <div class="cur" style="width:12%;background:#d97706">Hỏi đáp ●</div>
+        <div style="width:13%;background:#db2777">Flash deal</div>
+        <div style="width:14%;background:#6d4aff">Combo</div>
+        <div style="width:8%;background:#2563eb">Minigame</div>
+        <div style="width:17%;background:#6d4aff">Kem chống nắng + Toner</div>
+        <div style="width:10%;background:#e5344b">Chốt đơn</div>
+      </div>
+      <div class="ticks"><span>0:00</span><span>0:20</span><span>0:40</span><span>1:00</span><span>1:20</span><span>1:40</span><span>2:00</span></div>
+
+      <div class="seg"><span class="n" style="background:#8b5cf6">1</span><div><div class="t">Mở đầu · 3 phút</div><div class="s">Chào, giới thiệu chủ đề + ưu đãi chỉ trong live, hỏi khách đang dùng loại da gì</div></div><span class="badge green">Đã phát</span></div>
+      <div class="seg"><span class="n" style="background:#6d4aff">2</span><div><div class="t">Giới thiệu Serum MieSkin 10X · 12 phút</div><div class="s">3 điểm nổi bật từ hồ sơ → chèn clip "cầm sản phẩm" → báo giá live</div></div><span class="badge green">Đã phát</span></div>
+      <div class="seg"><span class="n" style="background:#0d9488">3</span><div><div class="t">Demo & thoa thử · 7 phút</div><div class="s">Chèn clip thoa thử dựng sẵn, nói kết cấu mỏng nhẹ, không bết</div></div><span class="badge green">Đã phát</span></div>
+      <div class="seg on"><span class="n" style="background:#d97706">4</span><div>
+        <div class="row"><div class="t">Hỏi đáp & xử lý phản đối · linh hoạt</div><span class="badge solid-red">ĐANG PHÁT</span></div>
+        <div class="s">Trả lời theo bình luận thật, gọi tên khách. Ưu tiên câu hỏi có ý định mua.</div>
+        <div class="line old">"Sản phẩm này có thành phần thiên nhiên, an toàn cho mọi loại da ạ."</div>
+        <div class="line new"><b>AI viết lại:</b> "Nhiều chị đang hỏi da nhạy cảm — chị Thu Hà, chị Minh Thư ơi, serum dùng được nha, mình thử trước ở vùng nhỏ 2–3 ngày rồi dùng mỗi tối. Em ghim link ngay dưới đây!"</div>
+        <div class="row tiny muted" style="margin-top:6px"><i data-lucide="file-text" style="width:13px;height:13px"></i>Nguồn: Hồ sơ tư vấn · FAQ 1 · Phù hợp <span class="right">Lý do: 17 bình luận hỏi da nhạy cảm trong 5 phút</span></div>
+      </div><span class="badge purple">v14</span></div>
+      <div class="seg"><span class="n" style="background:#db2777">5</span><div><div class="t">Flash deal 15 phút · giảm 15% combo</div><div class="s">Đồng hồ đếm ngược trên màn hình, nhắc số suất quà còn lại (lấy số thật từ đơn hàng)</div></div><span class="badge blue">Kế tiếp · 0:40</span></div>
+      <div class="seg"><span class="n" style="background:#6d4aff">6</span><div><div class="t">Giới thiệu Combo Dưỡng Da Toàn Diện · 17 phút</div><div class="s">So sánh mua lẻ vs combo, chèn clip thoa thử, trả lời câu hỏi về combo</div></div><span class="badge gray">Chờ</span></div>
+      <div class="seg"><span class="n" style="background:#2563eb">7</span><div><div class="t">Minigame "Đoán đúng giá" · 8 phút</div><div class="s">Câu hỏi mở cho người xem trả lời thật; quà là voucher của shop — không dùng bình luận giả</div></div><span class="badge gray">Chờ</span></div>
+      <div class="seg"><span class="n" style="background:#6d4aff">8</span><div><div class="t">Kem chống nắng SPF50+ & Toner · 20 phút</div><div class="s">Chuyển sản phẩm theo đề xuất của AI dựa trên câu hỏi đang tăng</div></div><span class="badge gray">Chờ</span></div>
+      <div class="seg"><span class="n" style="background:#e5344b">9</span><div><div class="t">Chốt đơn cuối phiên · 12 phút</div><div class="s">Tóm tắt ưu đãi, hướng dẫn đặt hàng qua link ghim, cảm ơn người xem theo tên</div></div><span class="badge gray">Chờ</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><i data-lucide="sparkles" style="color:var(--primary)"></i><h3>AI đang điều chỉnh</h3><span class="right row small"><span class="toggle on"></span>Hỏi trước khi áp dụng</span></div>
+      <div class="ins"><div class="h"><i data-lucide="messages-square" style="color:var(--teal)"></i>17 bình luận hỏi về da nhạy cảm</div><div class="b">Chèn đoạn giải thích da nhạy cảm vào phần hỏi đáp và ghim Serum MieSkin.</div><div class="row"><span class="badge green"><i data-lucide="check"></i>Đã áp dụng · v14</span></div></div>
+      <div class="ins"><div class="h"><i data-lucide="trending-down" style="color:var(--red)"></i>Người xem giảm 12% ở đoạn demo dài</div><div class="b">Rút ngắn demo Combo từ 2 phút xuống 45 giây, chèn câu hỏi mở cho khách.</div><div class="row"><span class="btn xs primary">Áp dụng</span><span class="btn xs">Bỏ qua</span></div></div>
+      <div class="ins"><div class="h"><i data-lucide="flame" style="color:var(--pink)"></i>Combo được hỏi 9 lần</div><div class="b">Đưa phần Combo lên sớm hơn 5 phút, nhắc mã giảm 15% ngay sau flash deal.</div><div class="row"><span class="btn xs primary">Áp dụng</span><span class="btn xs">Bỏ qua</span></div></div>
+      <div class="ins" style="margin-bottom:0"><div class="h"><i data-lucide="repeat" style="color:var(--amber)"></i>Câu mở đầu đã dùng 2 lần</div><div class="b">Tạo cách nói mới cho phần chào khách vào sau (không lặp nguyên văn trong 30 phút).</div><div class="row"><span class="badge green"><i data-lucide="check"></i>Tự động</span></div></div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="sliders-horizontal" style="color:var(--primary)"></i><h3>Quy tắc cho AI</h3></div>
+        <div class="rule"><span class="toggle on"></span>Chỉ dùng thông tin trong Hồ sơ tư vấn</div>
+        <div class="rule"><span class="toggle on"></span>Giá, % giảm, số suất phải khớp dữ liệu thật</div>
+        <div class="rule"><span class="toggle on"></span>Chặn "Câu AI không được nói"</div>
+        <div class="rule"><span class="toggle on"></span>Không lặp nguyên văn trong 30 phút</div>
+        <div class="rule"><span class="toggle on"></span>Gọi tên người bình luận khi trả lời</div>
+        <div class="rule"><span class="toggle"></span>Tự áp dụng mọi điều chỉnh (không hỏi)</div>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="monitor-speaker" style="color:var(--teal)"></i><h3>Teleprompter cho người dẫn</h3><span class="badge teal">Hybrid</span></div>
+        <div class="tp">
+          <div class="tiny" style="color:#a9a3cf;margin-bottom:6px">ĐANG NÓI · 00:42:10</div>
+          <div class="now">Chị Thu Hà, chị Minh Thư hỏi da nhạy cảm — <b>dùng được nha</b>, thử vùng nhỏ 2–3 ngày trước. Em ghim link ngay!</div>
+          <div class="nx">TIẾP THEO: Báo flash deal 15 phút · còn 18 suất quà mini</div>
+        </div>
+        <div class="small muted" style="margin-top:10px;line-height:1.55">Ở TikTok Shop / Shopee, người dẫn thật đọc theo gợi ý này bằng giọng của mình — AI chỉ nhắc, không nói thay.</div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'script',
+  spec: {
+    num: '09', title: 'Kịch bản AI động', tags: [['new', 'MỚI trong v3 (tách từ v2 trang 6)']], phase: 'GĐ 8',
+    notes: [
+      'Kịch bản chia giai đoạn theo thời lượng phiên; AI viết lại câu nói theo bình luận thật (gọi tên khách, trả lời đúng nhu cầu) — nội dung luôn thay đổi, không lặp nguyên văn.',
+      'Mỗi điều chỉnh có lý do và nguồn (Hồ sơ tư vấn); có thể bật "hỏi trước khi áp dụng" để người vận hành duyệt.',
+      'Chế độ Hybrid: người dẫn thật nhận teleprompter — cách hợp lệ để dùng AI trên TikTok Shop / Shopee.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

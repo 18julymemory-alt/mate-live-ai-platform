@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Background & Scene Studio</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .gen { display: grid; grid-template-columns: 1fr 190px; gap: 12px; }
+  .opts { display: grid; grid-template-columns: repeat(4, 1fr) 1.3fr; gap: 10px; margin-top: 10px; }
+  .body { display: grid; grid-template-columns: 470px 1fr 330px; gap: 16px; flex: 1; min-height: 0; }
+  .bgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .bgs img { width: 100%; height: 78px; object-fit: cover; border-radius: 10px; border: 2px solid transparent; display: block; }
+  .bgs img.on { border-color: var(--primary); }
+  .tpls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .tpls div { font-size: 11.5px; font-weight: 600; }
+  .tpls img { width: 100%; height: 56px; object-fit: cover; border-radius: 8px; display: block; margin-bottom: 3px; }
+  .stage { display: grid; grid-template-columns: 1fr 190px; gap: 12px; align-items: start; }
+  .pv { position: relative; border-radius: 12px; overflow: hidden; background: #000; }
+  .pv img.main { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; object-position: 0% 50%; }
+  .pv .top { position: absolute; left: 0; right: 0; top: 0; height: 17%; background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,0)); }
+  .pv .chip-l { position: absolute; left: 10px; top: 10px; display: flex; gap: 6px; }
+  .pv .ai { position: absolute; right: 10px; top: 10px; background: rgba(18,21,40,.78); color: #fff; font-size: 11.5px; font-weight: 600; padding: 4px 9px; border-radius: 7px; display: flex; gap: 5px; align-items: center; }
+  .pv .safe { position: absolute; inset: 6% 4%; border: 1.5px dashed rgba(255,255,255,.75); border-radius: 8px; }
+  .v916 { position: relative; border-radius: 12px; overflow: hidden; }
+  .v916 img { width: 190px; height: 338px; object-fit: cover; display: block; }
+  .v916 .safe { position: absolute; left: 8px; right: 34px; top: 40px; bottom: 90px; border: 1.5px dashed rgba(255,255,255,.8); border-radius: 6px; }
+  .v916 .ui { position: absolute; right: 6px; bottom: 90px; display: flex; flex-direction: column; gap: 8px; }
+  .v916 .ui i { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,255,255,.75); display: block; }
+  .v916 .cm { position: absolute; left: 6px; right: 38px; bottom: 4px; height: 84px; background: rgba(0,0,0,.35); border-radius: 6px; }
+  .scenes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; }
+  .scenes .s { border: 2px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 11.5px; font-weight: 600; }
+  .scenes .s img { width: 100%; height: 58px; object-fit: cover; display: block; }
+  .scenes .s div { padding: 4px 6px; }
+  .scenes .s.on { border-color: var(--primary); }
+  .layer { display: grid; grid-template-columns: 16px 22px 1fr 20px; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+  .layer svg.lucide { width: 16px; height: 16px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Background & Scene Studio</h1><p>Tạo nền bằng AI, dựng scene nhiều lớp và xuất 2 bố cục: 16:9 (YouTube, Facebook) và 9:16 dọc (TikTok Shop, Shopee Live).</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="folder"></i>Thư viện của tôi</div><div class="btn primary"><i data-lucide="plus"></i>Tạo scene mới</div></div>
+  </div>
+
+  <div class="card" style="padding:14px 18px">
+    <div class="gen">
+      <div class="input" style="padding:12px 14px"><i data-lucide="sparkles" style="color:var(--primary)"></i><span>Studio mỹ phẩm hiện đại, tông hồng pastel, kệ trưng bày, ánh sáng mềm, sang trọng, không có chữ</span></div>
+      <div class="btn primary" style="justify-content:center"><i data-lucide="wand-sparkles"></i>Tạo background</div>
+    </div>
+    <div class="opts">
+      <div class="input"><span class="muted tiny">Phong cách</span><b class="small">Hiện đại</b><i data-lucide="chevron-down" class="right"></i></div>
+      <div class="input"><span class="muted tiny">Màu thương hiệu</span><span style="width:14px;height:14px;border-radius:4px;background:#f472b6"></span><b class="small">Hồng pastel</b></div>
+      <div class="input"><span class="muted tiny">Bố cục</span><b class="small">16:9 + 9:16</b><i data-lucide="chevron-down" class="right"></i></div>
+      <div class="input"><span class="muted tiny">Chủ đề</span><b class="small">Mỹ phẩm</b><i data-lucide="chevron-down" class="right"></i></div>
+      <div class="row small" style="gap:10px"><span class="toggle on"></span><div><b>Vùng an toàn</b><div class="tiny muted">chừa chỗ cho nút & bình luận của nền tảng</div></div></div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="card col" style="gap:12px">
+      <div class="card-h" style="margin-bottom:0"><h3>Kết quả background AI</h3><span class="link">Xem tất cả <i data-lucide="arrow-right"></i></span></div>
+      <div class="bgs"><img class="on" src="../../assets/img/bg-2.jpg"><img src="../../assets/img/bg-1.jpg"><img src="../../assets/img/bg-3.jpg"><img src="../../assets/img/bg-4.jpg"><img src="../../assets/img/bg-5.jpg"><img src="../../assets/img/bg-6.jpg"></div>
+      <div class="card-h" style="margin:4px 0 0"><h3>Mẫu scene</h3><span class="link">Xem tất cả <i data-lucide="arrow-right"></i></span></div>
+      <div class="row" style="gap:6px;flex-wrap:wrap"><span class="chip active">Tất cả</span><span class="chip">Mỹ phẩm</span><span class="chip">Công nghệ</span><span class="chip">Gia dụng</span><span class="chip">Flash sale</span></div>
+      <div class="tpls">
+        <div><img src="../../assets/img/tpl-1.jpg">Sale mỹ phẩm</div><div><img src="../../assets/img/tpl-2.jpg">Ra mắt sản phẩm</div><div><img src="../../assets/img/tpl-3.jpg">Flash Sale</div><div><img src="../../assets/img/tpl-4.jpg">Lifestyle</div>
+        <div><img src="../../assets/img/tpl-5.jpg">Công nghệ</div><div><img src="../../assets/img/tpl-6.jpg">Thời trang</div><div><img src="../../assets/img/tpl-7.jpg">Đồ gia dụng</div><div><img src="../../assets/img/tpl-8.jpg">Lễ hội</div>
+      </div>
+      <div class="card-h" style="margin:4px 0 0"><h3>Tài nguyên thương hiệu</h3></div>
+      <div class="row" style="gap:10px">
+        <div class="logo-mark" style="width:46px;height:46px;border-radius:12px;font-size:24px">M</div>
+        <div class="row" style="gap:5px"><span style="width:26px;height:26px;border-radius:7px;background:#f472b6"></span><span style="width:26px;height:26px;border-radius:7px;background:#6d4aff"></span><span style="width:26px;height:26px;border-radius:7px;background:#fde68a"></span><span style="width:26px;height:26px;border-radius:7px;background:#121528"></span></div>
+        <div class="row" style="gap:5px"><img class="thumb" src="../../assets/img/p-serum.jpg" style="width:40px;height:40px"><img class="thumb" src="../../assets/img/p-cream2.jpg" style="width:40px;height:40px"><img class="thumb" src="../../assets/img/p-combo.jpg" style="width:40px;height:40px"><img class="thumb" src="../../assets/img/p-mask2.jpg" style="width:40px;height:40px"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><h3>Trình chỉnh sửa scene</h3><span class="chip active" style="padding:4px 10px">16:9 · 1920×1080</span><span class="chip" style="padding:4px 10px">9:16 · 1080×1920</span><span class="right row" style="gap:8px"><span class="btn xs"><i data-lucide="undo-2"></i></span><span class="btn xs"><i data-lucide="eye"></i>Xem trước</span><span class="btn xs primary"><i data-lucide="save"></i>Lưu scene</span></span></div>
+      <div class="stage">
+        <div class="pv"><img class="main" src="../../assets/img/host-live-clean.jpg"><div class="top"></div>
+          <div class="chip-l"><span class="badge solid-red">● LIVE</span><span class="badge dark"><i data-lucide="eye"></i>12,4K</span></div>
+          <span class="ai"><i data-lucide="sparkles" style="width:12px;height:12px"></i>Nội dung do AI tạo</span>
+          <div class="safe"></div>
+        </div>
+        <div>
+          <div class="v916"><img src="../../assets/img/host-portrait.jpg"><div class="safe"></div><div class="ui"><i></i><i></i><i></i><i></i></div><div class="cm"></div></div>
+          <div class="tiny muted" style="margin-top:6px;line-height:1.5">Bản dọc cho TikTok Shop / Shopee: khung nét đứt là vùng an toàn, tránh bị nút và bình luận của app che.</div>
+        </div>
+      </div>
+      <div class="scenes">
+        <div class="s on"><img src="../../assets/img/scene-1.jpg"><div>1 · Giới thiệu</div></div>
+        <div class="s"><img src="../../assets/img/scene-2.jpg"><div>2 · Demo</div></div>
+        <div class="s"><img src="../../assets/img/scene-3.jpg"><div>3 · Ưu đãi & Combo</div></div>
+        <div class="s"><img src="../../assets/img/scene-4.jpg"><div>4 · Chốt đơn</div></div>
+        <div class="s" style="border-style:dashed;display:grid;place-items:center;color:var(--muted)"><div style="text-align:center"><i data-lucide="plus"></i><br>Thêm scene</div></div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:12px">
+        <div class="small semi" style="margin-bottom:6px">Kiểm tra scene trước khi phát</div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:6px 14px">
+          <div class="row small"><i data-lucide="circle-check" style="color:var(--green)"></i>Chữ và giá không bị che ở bản 9:16</div>
+          <div class="row small"><i data-lucide="circle-check" style="color:var(--green)"></i>Nhãn "Nội dung do AI tạo" hiển thị</div>
+          <div class="row small"><i data-lucide="circle-check" style="color:var(--green)"></i>Giá trên thẻ sản phẩm khớp hồ sơ</div>
+          <div class="row small"><i data-lucide="triangle-alert" style="color:var(--amber)"></i>Ảnh nền "SALE" có chữ — nên dùng bản không chữ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><h3>Lớp (Layers)</h3><span class="sub">scene 1</span></div>
+        <div class="layer"><i data-lucide="grip-vertical"></i><i data-lucide="sparkles" style="color:var(--primary)"></i><span><b>Nhãn nội dung AI</b></span><i data-lucide="lock"></i></div>
+        <div class="layer"><i data-lucide="grip-vertical"></i><i data-lucide="image"></i><span>Logo thương hiệu</span><i data-lucide="eye"></i></div>
+        <div class="layer"><i data-lucide="grip-vertical"></i><i data-lucide="user-round"></i><span>Người dẫn (AI hoặc camera)</span><i data-lucide="eye"></i></div>
+        <div class="layer"><i data-lucide="grip-vertical"></i><i data-lucide="tag"></i><span>Thẻ sản phẩm + giá</span><i data-lucide="eye"></i></div>
+        <div class="layer"><i data-lucide="grip-vertical"></i><i data-lucide="timer"></i><span>Đồng hồ flash deal</span><i data-lucide="eye"></i></div>
+        <div class="layer"><i data-lucide="grip-vertical"></i><i data-lucide="message-square"></i><span>Khung bình luận nổi bật</span><i data-lucide="eye"></i></div>
+        <div class="layer" style="border:0"><i data-lucide="grip-vertical"></i><i data-lucide="image"></i><span>Background</span><i data-lucide="lock"></i></div>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="cast" style="color:var(--primary)"></i><h3>Đồng bộ OBS</h3><span class="badge green">● Đã kết nối</span></div>
+        <div class="row small"><i data-lucide="monitor"></i>Studio 1 · OBS 32.2</div>
+        <div class="callout ok" style="margin:10px 0"><i data-lucide="circle-check"></i><div>Đã đồng bộ 4 scene · 28/09 14:32</div></div>
+        <div class="btn primary" style="width:100%;justify-content:center"><i data-lucide="upload"></i>Đồng bộ scene lên OBS</div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'scene',
+  spec: {
+    num: '10', title: 'Background & Scene Studio', tags: [['fix', 'Cập nhật từ v2 trang 7']], phase: 'GĐ 11 (scene cơ bản ở GĐ 5)',
+    notes: [
+      'Mỗi scene xuất 2 bố cục: 16:9 cho YouTube/Facebook và 9:16 dọc cho TikTok Shop/Shopee — v2 mới chỉ có 16:9.',
+      'Lớp "Nhãn nội dung AI" khóa luôn bật khi có người dẫn AI; vùng an toàn tránh bị nút/bình luận của app che.',
+      'Scene đồng bộ sang OBS qua obs-websocket, dùng chung cho Studio và Hybrid.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

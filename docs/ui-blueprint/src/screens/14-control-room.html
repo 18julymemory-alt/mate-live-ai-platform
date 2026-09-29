@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Control Room</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .content { gap: 12px; padding-top: 16px; }
+  .bar { display: flex; align-items: center; gap: 12px; }
+  .bar h1 { font-size: 20px; font-weight: 800; white-space: nowrap; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 6px 12px; display: flex; gap: 8px; align-items: center; }
+  .stat b { font-size: 16px; } .stat span { font-size: 11px; color: var(--muted); display: block; line-height: 1.1; white-space: nowrap; }
+  .timer { font-size: 22px; font-weight: 800; color: #ff5d73; letter-spacing: -0.5px; }
+  .grid3 { display: grid; grid-template-columns: 270px 1fr 420px; gap: 12px; flex: 1; min-height: 0; }
+  .scene { display: grid; grid-template-columns: 76px 1fr; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 6px; margin-bottom: 7px; font-size: 12.5px; }
+  .scene img { width: 76px; height: 44px; object-fit: cover; border-radius: 7px; }
+  .scene.on { border-color: var(--primary); background: #221c44; }
+  .src { display: flex; align-items: center; gap: 10px; font-size: 12.5px; padding: 6px 0; }
+  .src svg.lucide { width: 16px; height: 16px; color: var(--muted); }
+  .pv { position: relative; border-radius: 12px; overflow: hidden; }
+  .pv img { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; object-position: 0% 50%; }
+  .pv .tl { position: absolute; left: 12px; top: 12px; display: flex; gap: 6px; }
+  .pv .tr { position: absolute; right: 12px; top: 12px; display: flex; gap: 6px; align-items: center; }
+  .pv .ai { background: rgba(10,8,20,.75); color: #fff; font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 7px; display: flex; gap: 5px; align-items: center; }
+  .pv .deal { position: absolute; right: 12px; bottom: 12px; background: rgba(229,52,75,.95); color: #fff; border-radius: 10px; padding: 8px 12px; text-align: center; }
+  .pv .deal b { font-size: 20px; display: block; letter-spacing: 0.5px; }
+  .under { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .q { display: grid; grid-template-columns: 36px 1fr auto; gap: 8px; align-items: center; padding: 5px 0; font-size: 12px; }
+  .q img { width: 36px; height: 36px; border-radius: 7px; object-fit: cover; }
+  .cm { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 7px; }
+  .cm.conv { border-color: #ff5d73; background: #2a1320; box-shadow: inset 3px 0 0 #ff5d73; }
+  .cm .h { display: flex; gap: 8px; align-items: center; font-size: 12.5px; }
+  .cm .h img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
+  .cm .t { font-size: 12.5px; margin: 5px 0 6px 34px; line-height: 1.45; }
+  .cm .t.bold { font-weight: 700; color: #fff; }
+  .cm .a { margin-left: 34px; display: flex; gap: 6px; }
+  .foot { display: grid; grid-template-columns: 1.3fr repeat(4, 1fr); gap: 10px; }
+  .foot .d { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; display: flex; gap: 8px; align-items: center; font-size: 12px; }
+  .foot .d b { font-size: 12.5px; display: block; }
+</style>
+</head>
+<body class="dark">
+<main id="content" class="content">
+  <div class="bar">
+    <h1>Đẹp rạng rỡ cùng MateBeauty</h1><span class="badge purple"><i data-lucide="bot"></i>AI Host · Mai Anh</span>
+    <span class="badge solid-red" style="font-size:13px;padding:5px 10px">● ĐANG LIVE</span><span class="timer">01:24:18</span><span class="small muted" style="white-space:nowrap">/ 2:00:00</span>
+    <div class="stat"><i data-lucide="eye"></i><div><b>14,7K</b><span>đang xem</span></div></div>
+    <div class="stat"><i data-lucide="message-square"></i><div><b>3,2K</b><span>bình luận</span></div></div>
+    <div class="stat"><i data-lucide="shopping-cart"></i><div><b>428</b><span>đơn</span></div></div>
+    <div class="right row" style="gap:8px">
+      <div class="btn" style="border-color:#14b8a6;color:#5eead4"><i data-lucide="hand"></i>Người thật tiếp quản</div>
+      <div class="btn"><i data-lucide="pause"></i>Tạm dừng AI</div>
+      <div class="btn danger"><i data-lucide="square"></i>Kết thúc live</div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card" style="padding:12px">
+      <div class="card-h" style="margin-bottom:8px"><h3 style="font-size:14px">Cảnh quay</h3><span class="link">+ Thêm</span></div>
+      <div class="scene on"><img src="../../assets/img/scene-1.jpg"><div><b>1 · Giới thiệu SP</b><div class="tiny" style="color:#a78bfa">● Đang phát</div></div></div>
+      <div class="scene"><img src="../../assets/img/scene-2.jpg"><div><b>2 · Clip cầm SP</b><div class="tiny muted">clip dựng sẵn 20s</div></div></div>
+      <div class="scene"><img src="../../assets/img/cam-3.jpg"><div><b>3 · Feedback khách</b><div class="tiny muted">ảnh đánh giá thật</div></div></div>
+      <div class="scene"><img src="../../assets/img/scene-3.jpg"><div><b>4 · Ưu đãi & Combo</b><div class="tiny muted">đồng hồ flash deal</div></div></div>
+      <div class="scene"><img src="../../assets/img/scene-4.jpg"><div><b>5 · Chốt đơn</b><div class="tiny muted">10 phút cuối</div></div></div>
+      <div class="hr"></div>
+      <div class="card-h" style="margin-bottom:4px"><h3 style="font-size:14px">Nguồn phát</h3></div>
+      <div class="src"><i data-lucide="user-round"></i>Người dẫn AI<span class="toggle on right"></span></div>
+      <div class="src"><i data-lucide="camera"></i>Camera (khi tiếp quản)<span class="toggle right"></span></div>
+      <div class="src"><i data-lucide="image"></i>Thẻ sản phẩm & giá<span class="toggle on right"></span></div>
+      <div class="src"><i data-lucide="sparkles"></i>Nhãn nội dung AI<span class="toggle on right"></span></div>
+      <div class="src"><i data-lucide="music"></i>Nhạc nền (có bản quyền)<span class="toggle on right"></span></div>
+    </div>
+
+    <div style="min-width:0">
+      <div class="pv"><img src="../../assets/img/host-live-clean.jpg">
+        <div class="tl"><span class="badge solid-red">● LIVE</span><span class="plat md yt"></span><span class="plat md fb"></span></div>
+        <div class="tr"><span class="ai"><i data-lucide="sparkles" style="width:13px;height:13px"></i>Nội dung do AI tạo</span></div>
+        <div class="deal"><span class="tiny">FLASH DEAL · còn 18 suất</span><b>14:52</b></div>
+      </div>
+      <div class="under">
+        <div class="card" style="padding:12px">
+          <div class="card-h" style="margin-bottom:8px"><h3 style="font-size:14px">Sản phẩm đang ghim</h3><span class="link">Đổi</span></div>
+          <div class="row"><img class="thumb" src="../../assets/img/p-pinned.jpg" style="width:70px;height:70px"><div><div class="row" style="gap:5px"><span class="badge red">HOT</span><span class="badge green">Đã ghim YT · FB</span></div><div class="semi small" style="margin-top:4px">Serum Dưỡng Trắng MateBeauty 30ml</div><div style="font-size:18px;font-weight:800;color:#ff5d73">349.000đ <s class="tiny muted" style="font-weight:500">550.000đ</s></div></div></div>
+          <div class="row small muted" style="margin-top:6px;gap:12px"><span><b style="color:var(--text)">428</b> đã bán</span><span><b style="color:var(--text)">1,2K</b> nhấp link</span></div>
+        </div>
+        <div class="card" style="padding:12px">
+          <div class="card-h" style="margin-bottom:6px"><h3 style="font-size:14px">Hàng chờ sản phẩm</h3><span class="link">Quản lý</span></div>
+          <div class="q"><img src="../../assets/img/p-cream2.jpg"><div><b>Kem dưỡng ẩm 50g</b><div class="muted">299.000đ</div></div><span class="btn xs"><i data-lucide="play"></i>Phát</span></div>
+          <div class="q"><img src="../../assets/img/p-combo.jpg"><div><b>Combo Dưỡng Da Toàn Diện</b><div class="muted">799.000đ · AI đề xuất</div></div><span class="btn xs primary"><i data-lucide="play"></i>Phát</span></div>
+          <div class="q"><img src="../../assets/img/p-mask2.jpg"><div><b>Mặt nạ cấp ẩm 5 miếng</b><div class="muted">159.000đ</div></div><span class="btn xs"><i data-lucide="play"></i>Phát</span></div>
+        </div>
+        <div class="card" style="padding:12px">
+          <div class="card-h" style="margin-bottom:8px"><img class="avatar" src="../../assets/img/host-avatar.jpg" style="width:28px;height:28px"><h3 style="font-size:14px">Mai Anh (AI)</h3><span class="badge green right">● Đang nói</span></div>
+          <div class="tiny muted" style="margin-bottom:6px">Đang nói: "Chị Thu Hà hỏi da nhạy cảm — dùng được nha…"</div>
+          <div class="row tiny"><span style="width:62px">Tốc độ</span><div class="slider grow" style="margin:0"><i style="width:55%"></i><b style="left:55%"></b></div><span>1,05×</span></div>
+          <div class="row tiny" style="margin-top:10px"><span style="width:62px">Cảm xúc</span><div class="slider grow" style="margin:0"><i style="width:75%"></i><b style="left:75%"></b></div><span>75%</span></div>
+          <div class="callout purple" style="margin-top:10px;padding:8px 10px;font-size:12px"><i data-lucide="sparkles" style="width:15px;height:15px"></i><div>68% câu hỏi đang về combo → <b>chuyển sang Combo</b> sau 2 phút?</div></div>
+        </div>
+      </div>
+      <div class="card" style="padding:12px;margin-top:12px">
+        <div class="row" style="margin-bottom:8px"><h3 style="font-size:14px">Kịch bản · giai đoạn 4/9</h3><span class="small muted">Hỏi đáp & xử lý phản đối · v14</span><span class="right small muted">còn 35 phút · 10 phút cuối tự chuyển chốt đơn</span></div>
+        <div style="display:flex;height:22px;border-radius:7px;overflow:hidden;gap:2px">
+          <div style="width:4%;background:#4b3f86"></div><div style="width:14%;background:#4b3f86"></div><div style="width:8%;background:#4b3f86"></div>
+          <div style="width:12%;background:#d97706;box-shadow:inset 0 0 0 2px #fff"></div>
+          <div style="width:13%;background:#db2777"></div><div style="width:14%;background:#6d4aff"></div><div style="width:8%;background:#2563eb"></div><div style="width:17%;background:#6d4aff"></div><div style="width:10%;background:#e5344b"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:12px;display:flex;flex-direction:column;min-height:0">
+      <div class="card-h" style="margin-bottom:8px"><h3 style="font-size:14px">Bình luận</h3><span class="sub">YouTube + Facebook</span><span class="right row small" style="gap:6px"><span class="muted">Trả lời:</span><span class="badge purple">AI gợi ý · duyệt</span></span></div>
+      <div class="row" style="gap:6px;margin-bottom:10px"><span class="chip active" style="padding:4px 10px">Tất cả</span><span class="chip" style="padding:4px 10px;border-color:#ff5d73;color:#ff8597"><i data-lucide="flame"></i>Chuyển đổi 86</span><span class="chip" style="padding:4px 10px">Tư vấn 1,1K</span><span class="chip" style="padding:4px 10px">Khác</span></div>
+      <div class="cm conv"><div class="h"><div class="av-wrap"><img src="../../assets/img/av-1.jpg"><span class="plat sm fb" style="width:14px;height:14px;font-size:9px"></span></div><b>Trần Mai Anh</b><span class="badge solid-red">Chuyển đổi trực tiếp · 95%</span><span class="tiny muted right">vừa xong</span></div>
+        <div class="t bold">Em muốn mua sản phẩm này, shop tư vấn giúp cách đặt hàng với ạ?</div>
+        <div class="a"><span class="btn xs primary"><i data-lucide="send"></i>Gửi trả lời AI</span><span class="btn xs"><i data-lucide="mic"></i>AI nói trong live</span><span class="btn xs">Sửa</span></div></div>
+      <div class="cm"><div class="h"><div class="av-wrap"><img src="../../assets/img/av-2.jpg"><span class="plat sm yt" style="width:14px;height:14px"></span></div><b>Nguyễn Quang Huy</b><span class="badge teal">Tư vấn</span><span class="tiny muted right">1 phút</span></div>
+        <div class="t">Sản phẩm này dùng cho da dầu được không ạ?</div>
+        <div class="a"><span class="badge green"><i data-lucide="check"></i>AI đã trả lời trong live</span></div></div>
+      <div class="cm conv"><div class="h"><div class="av-wrap"><img src="../../assets/img/av-3.jpg"><span class="plat sm fb" style="width:14px;height:14px;font-size:9px"></span></div><b>Lê Thị Kim Ngân</b><span class="badge solid-red">Chốt đơn · 92%</span><span class="tiny muted right">2 phút</span></div>
+        <div class="t bold">Mình chốt 2 combo nhé shop!</div>
+        <div class="a"><span class="btn xs primary"><i data-lucide="link"></i>Gửi link combo</span><span class="btn xs"><i data-lucide="mic"></i>Cảm ơn trong live</span></div></div>
+      <div class="cm"><div class="h"><div class="av-wrap"><img src="../../assets/img/av-4.jpg"><span class="plat sm yt" style="width:14px;height:14px"></span></div><b>Phạm Minh Thư</b><span class="badge teal">Tư vấn</span><span class="tiny muted right">3 phút</span></div>
+        <div class="t">Da nhạy cảm dùng được không? Có kích ứng không ạ?</div>
+        <div class="a"><span class="badge green"><i data-lucide="check"></i>Gộp trả lời cùng 16 câu tương tự</span></div></div>
+      <div class="cm" style="margin-bottom:0"><div class="h"><div class="av-wrap"><img src="../../assets/img/av-5.jpg"><span class="plat sm fb" style="width:14px;height:14px;font-size:9px"></span></div><b>Hoàng Gia Bảo</b><span class="badge amber">Câu hỏi</span><span class="tiny muted right">4 phút</span></div>
+        <div class="t">Sản phẩm này có mấy màu vậy shop?</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="d"><i data-lucide="activity" style="color:#4ade80"></i><div><b>Luồng ổn định · 1920×1080 30fps</b><span class="muted">8,2 Mbps · GPU 78% · relay-sg-01</span></div></div>
+    <div class="d"><span class="plat md yt"></span><div><b>YouTube</b><span style="color:#4ade80">● Đang live · 2,3K</span></div></div>
+    <div class="d"><span class="plat md fb"></span><div><b>Facebook</b><span style="color:#fbbf24">● Đang nối lại (2/5)</span></div></div>
+    <div class="d"><span class="plat md tt"></span><div><b>TikTok Shop</b><span class="muted">Phiên Hybrid riêng · Thảo</span></div></div>
+    <div class="d"><span class="plat md sp"></span><div><b>Shopee Live</b><span class="muted">Lịch 20:00 · Hybrid</span></div></div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'control',
+  user: 'Nguyễn Thảo', role: 'Vận hành viên',
+  spec: {
+    num: '14', title: 'Control Room', tags: [['fix', 'Cập nhật từ v2 trang 8']], phase: 'GĐ 5 → GĐ 10',
+    notes: [
+      'Giữ bố cục v2 nhưng dùng chung menu (v2 trang 8 dùng thanh menu riêng). Khung phát có nhãn AI; chỉ phát YouTube + Facebook cho AI Host.',
+      'Thêm nút "Người thật tiếp quản": tắt người dẫn AI, bật camera ngay trong phiên. Mỗi kênh có trạng thái riêng (vd. Facebook đang nối lại, YouTube vẫn live).',
+      'Bình luận chuyển đổi tô đỏ + chữ đậm; trả lời bằng text (tài khoản chính chủ) hoặc để AI nói trong live; câu hỏi giống nhau được gộp trả lời một lần.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

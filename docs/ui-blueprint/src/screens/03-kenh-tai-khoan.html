@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Kênh & tài khoản</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .kpis { grid-template-columns: repeat(4, 1fr); }
+  .acc { display: flex; align-items: center; gap: 10px; }
+  .acc img { width: 34px; height: 34px; }
+  .acc .n { font-weight: 600; font-size: 13.5px; }
+  .acc .i { font-size: 11.5px; color: var(--muted); }
+  .cap { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; }
+  .cap svg.lucide { width: 16px; height: 16px; }
+  .cap.y { color: var(--green); } .cap.n { color: var(--muted-2); } .cap.m { color: var(--amber); } .cap.x { color: var(--red); }
+  .tbl td { padding: 7px 10px; }
+  .kpi .v { font-size: 26px; }
+  .kpis .card { padding: 12px 18px; }
+  .tbl th.c, .tbl td.c { text-align: center; }
+  .bottom { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; }
+  .mini { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 4px; }
+  .mini .m { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+  .mini .m b { display: block; font-size: 15px; }
+  .li { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; padding: 4px 0; }
+  .li svg.lucide { width: 16px; height: 16px; color: var(--green); margin-top: 2px; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Kênh & tài khoản</h1><p>Kết nối nhiều tài khoản chính chủ trên 4 nền tảng. Mỗi tài khoản ghi rõ cách kết nối và MateLive làm được gì với tài khoản đó.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="book-open"></i>Hướng dẫn kết nối</div><div class="btn primary"><i data-lucide="plus"></i>Kết nối tài khoản mới</div></div>
+  </div>
+
+  <div class="kpis grid">
+    <div class="card kpi"><div class="icon-box ib-blue"><i data-lucide="link-2"></i></div><div><div class="t">Tổng tài khoản</div><div class="v">9 <span class="d">↑ 2 tuần này</span></div><div class="s">trên 4 nền tảng</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-green"><i data-lucide="circle-check"></i></div><div><div class="t">Sẵn sàng phát</div><div class="v">6</div><div class="s">đã kiểm tra luồng trong 24 giờ</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-amber"><i data-lucide="clock"></i></div><div><div class="t">Cần xử lý</div><div class="v">2</div><div class="s">hết hạn token hoặc cần xác thực lại</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-red"><i data-lucide="circle-alert"></i></div><div><div class="t">Có vấn đề</div><div class="v">1</div><div class="s">bị thu hồi quyền — cần cấp lại</div></div></div>
+  </div>
+
+  <div class="card" style="padding:14px 16px">
+    <div class="row" style="margin-bottom:12px">
+      <span class="chip active">Tất cả · 9</span>
+      <span class="chip"><span class="plat sm fb"></span>Facebook · 3</span>
+      <span class="chip"><span class="plat sm yt"></span>YouTube · 2</span>
+      <span class="chip"><span class="plat sm tt"></span>TikTok Shop · 2</span>
+      <span class="chip"><span class="plat sm sp"></span>Shopee Live · 2</span>
+      <div class="right row">
+        <div class="row small muted" style="gap:14px"><span class="cap y"><i data-lucide="circle-check"></i>Tự động qua API</span><span class="cap m"><i data-lucide="hand"></i>Người vận hành làm</span><span class="cap n"><i data-lucide="minus"></i>Không hỗ trợ</span></div>
+        <div class="input" style="width:240px;color:var(--muted-2)"><i data-lucide="search"></i>Tìm tài khoản…</div>
+      </div>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>Tài khoản</th><th>Cách kết nối</th><th>Trạng thái</th><th class="c">Phát live</th><th class="c">Tạo phiên tự động</th><th class="c">Đọc bình luận</th><th class="c">Trả lời bình luận</th><th class="c">AI Host</th><th>Phụ trách</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/voice-1.jpg"><span class="plat sm fb"></span></div><div><div class="n">MateBeauty Official <i data-lucide="badge-check" style="width:14px;height:14px;color:var(--fb)"></i></div><div class="i">Trang · 125K theo dõi · ID 1000123456789</div></div></div></td>
+          <td><span class="badge blue">OAuth · API chính thức</span></td>
+          <td><span class="badge green">● Đã kết nối</span><div class="tiny muted" style="margin-top:3px">Token còn 58 ngày</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Tên Trang</span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Gắn nhãn AI</span></td>
+          <td class="small">Minh Anh</td><td><span class="btn xs"><i data-lucide="activity"></i>Kiểm tra</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/voice-4.jpg"><span class="plat sm fb"></span></div><div><div class="n">MateFashion Store</div><div class="i">Trang · 48K theo dõi · ID 1000987654321</div></div></div></td>
+          <td><span class="badge blue">OAuth · API chính thức</span></td>
+          <td><span class="badge amber">● Hết hạn token</span><div class="tiny muted" style="margin-top:3px">Có phiên lúc 19:30 hôm nay</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Tên Trang</span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Gắn nhãn AI</span></td>
+          <td class="small">Thảo</td><td><span class="btn xs soft"><i data-lucide="refresh-cw"></i>Kết nối lại</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/user-avatar.jpg"><span class="plat sm fb"></span></div><div><div class="n">Nguyễn Minh Anh</div><div class="i">Trang cá nhân · không có API bình luận</div></div></div></td>
+          <td><span class="badge amber">Stream key · Live Producer</span></td>
+          <td><span class="badge green">● Sẵn sàng</span><div class="tiny muted" style="margin-top:3px">Dán key mới mỗi phiên</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap n"><i data-lucide="minus"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td>
+          <td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Gắn nhãn AI</span></td>
+          <td class="small">Minh Anh</td><td><span class="btn xs"><i data-lucide="activity"></i>Kiểm tra</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/voice-2.jpg"><span class="plat sm yt"></span></div><div><div class="n">MateBeauty Channel</div><div class="i">Kênh · 86K đăng ký · UC12345ab6789</div></div></div></td>
+          <td><span class="badge blue">OAuth Google · API</span></td>
+          <td><span class="badge green">● Đã kết nối</span><div class="tiny muted" style="margin-top:3px">Hạn mức API còn 71%</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Tên kênh</span></td><td class="c"><span class="cap y"><i data-lucide="circle-check"></i>Khai báo AI</span></td>
+          <td class="small">Minh Anh</td><td><span class="btn xs"><i data-lucide="activity"></i>Kiểm tra</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><div class="avatar" style="width:34px;height:34px;background:#1b1d2e;color:#fff;display:grid;place-items:center;font-weight:800">M</div><span class="plat sm yt"></span></div><div><div class="n">MateLive Academy</div><div class="i">Kênh · 12K đăng ký · UC98765zy4321</div></div></div></td>
+          <td><span class="badge blue">OAuth Google · API</span></td>
+          <td><span class="badge red">● Bị thu hồi quyền</span><div class="tiny muted" style="margin-top:3px">Chủ kênh đã gỡ ứng dụng</div></td>
+          <td class="c"><span class="cap x"><i data-lucide="circle-x"></i></span></td><td class="c"><span class="cap x"><i data-lucide="circle-x"></i></span></td><td class="c"><span class="cap x"><i data-lucide="circle-x"></i></span></td>
+          <td class="c"><span class="cap x"><i data-lucide="circle-x"></i></span></td><td class="c"><span class="cap x"><i data-lucide="circle-x"></i></span></td>
+          <td class="small">Quân</td><td><span class="btn xs soft"><i data-lucide="key-round"></i>Cấp lại quyền</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/voice-4.jpg"><span class="plat sm tt"></span></div><div><div class="n">MateBeauty Store</div><div class="i">@matebeauty · đủ điều kiện LIVE bán hàng</div></div></div></td>
+          <td><span class="badge amber">Stream key · LIVE Studio</span></td>
+          <td><span class="badge green">● Sẵn sàng</span><div class="tiny muted" style="margin-top:3px">Key hợp lệ đến 23:59</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap n"><i data-lucide="minus"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td>
+          <td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td><td class="c"><span class="cap x"><i data-lucide="ban"></i>Chỉ Hybrid</span></td>
+          <td class="small">Thảo</td><td><span class="btn xs"><i data-lucide="activity"></i>Kiểm tra</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/voice-3.jpg"><span class="plat sm tt"></span></div><div><div class="n">MateLiving</div><div class="i">@mateliving · gia dụng</div></div></div></td>
+          <td><span class="badge amber">Stream key · LIVE Studio</span></td>
+          <td><span class="badge solid-red">● Đang live</span><div class="tiny muted" style="margin-top:3px">Phiên Gia dụng Deal trưa</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap n"><i data-lucide="minus"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td>
+          <td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td><td class="c"><span class="cap x"><i data-lucide="ban"></i>Chỉ Hybrid</span></td>
+          <td class="small">Thảo</td><td><span class="btn xs"><i data-lucide="monitor-play"></i>Mở phiên</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><img class="avatar" src="../../assets/img/voice-1.jpg"><span class="plat sm sp"></span></div><div><div class="n">MateBeauty Official</div><div class="i">Shop ID 1234567890 · Shopee Mall</div></div></div></td>
+          <td><span class="badge amber">Stream key · Shopee Live (OBS)</span></td>
+          <td><span class="badge green">● Sẵn sàng</span><div class="tiny muted" style="margin-top:3px">Lịch 20:00 hôm nay</div></td>
+          <td class="c"><span class="cap y"><i data-lucide="circle-check"></i></span></td><td class="c"><span class="cap n"><i data-lucide="minus"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td>
+          <td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i>Hybrid</span></td>
+          <td class="small">Quân</td><td><span class="btn xs"><i data-lucide="activity"></i>Kiểm tra</span></td>
+        </tr>
+        <tr>
+          <td><div class="acc"><div class="av-wrap"><div class="avatar" style="width:34px;height:34px;background:var(--sp);color:#fff;display:grid;place-items:center;font-weight:800">H</div><span class="plat sm sp"></span></div><div><div class="n">MateHome Store</div><div class="i">Shop ID 0987654321</div></div></div></td>
+          <td><span class="badge amber">Stream key · Shopee Live (OBS)</span></td>
+          <td><span class="badge amber">● Cần xác thực lại</span><div class="tiny muted" style="margin-top:3px">Shopee yêu cầu xác minh</div></td>
+          <td class="c"><span class="cap n"><i data-lucide="minus"></i></span></td><td class="c"><span class="cap n"><i data-lucide="minus"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td>
+          <td class="c"><span class="cap m"><i data-lucide="hand"></i></span></td><td class="c"><span class="cap m"><i data-lucide="hand"></i>Hybrid</span></td>
+          <td class="small">Quân</td><td><span class="btn xs soft"><i data-lucide="shield-check"></i>Xác thực</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bottom">
+    <div class="card">
+      <div class="card-h"><i data-lucide="cast" style="color:var(--primary)"></i><h3>OBS Bridge</h3><span class="badge green">● 2 máy online</span><span class="link">Chi tiết <i data-lucide="arrow-right"></i></span></div>
+      <div class="mini">
+        <div class="m"><span class="tiny muted">Máy</span><b>Studio 1</b><span class="tiny muted">192.168.1.100</span></div>
+        <div class="m"><span class="tiny muted">Phiên bản</span><b>OBS 32.2</b><span class="tiny muted">WebSocket 5</span></div>
+        <div class="m"><span class="tiny muted">Scene đồng bộ</span><b>8 scene</b><span class="tiny muted">12 nguồn</span></div>
+        <div class="m"><span class="tiny muted">Độ trễ</span><b>&lt; 300ms</b><span class="tiny muted">ổn định</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h"><i data-lucide="waypoints" style="color:var(--teal)"></i><h3>Relay ổn định luồng</h3><span class="badge teal">Khuyên dùng</span></div>
+      <div class="small muted" style="line-height:1.55">OBS → SRT → máy chủ relay (VPS) → RTMP từng nền tảng. Mạng nhà chập chờn không làm rớt khung hình — nguyên nhân flop thật sự.</div>
+      <div class="row small" style="margin-top:8px"><span class="badge green">● relay-sg-01</span><span class="muted">8,2 Mbps · mất gói 0,02% · tự nối lại khi rớt</span></div>
+    </div>
+    <div class="card">
+      <div class="card-h"><i data-lucide="lock" style="color:var(--primary)"></i><h3>Bảo mật tài khoản</h3></div>
+      <div class="li"><i data-lucide="check"></i>Stream key & token được mã hóa; vận hành viên không xem được key</div>
+      <div class="li"><i data-lucide="check"></i>Chỉ tài khoản chính chủ / được ủy quyền</div>
+      <div class="li"><i data-lucide="check"></i>Nhật ký mọi lần kết nối, cấp quyền và thay key</div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'accounts',
+  search: 'Tìm tài khoản, trang, kênh, shop…',
+  spec: {
+    num: '03', title: 'Kênh & tài khoản', tags: [['fix', 'Cập nhật từ v2 trang 2']], phase: 'GĐ 2',
+    notes: [
+      'Một bảng cho cả 4 nền tảng, nhiều tài khoản mỗi nền tảng. Thêm cột "Cách kết nối": API chính thức (OAuth) hoặc stream key.',
+      '5 cột năng lực cho biết thật sự làm được gì: YouTube/Facebook Trang tự động hoàn toàn; TikTok/Shopee: bình luận do người vận hành xử lý.',
+      'Relay SRT qua VPS giúp luồng ổn định (hợp lệ). Không làm proxy/đổi IP để né kiểm duyệt, không nhận tài khoản ảo.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

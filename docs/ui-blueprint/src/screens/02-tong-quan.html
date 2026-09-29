@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Tổng quan</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .kpis { grid-template-columns: repeat(5, 1fr); }
+  .r2 { display: grid; grid-template-columns: 1.55fr 1fr; gap: 16px; }
+  .r3 { display: grid; grid-template-columns: 1fr 1fr 0.9fr; gap: 16px; }
+  .sess { display: grid; grid-template-columns: 224px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .sess:last-child { border-bottom: 0; padding-bottom: 0; }
+  .sess .pv { position: relative; }
+  .sess .pv img { width: 224px; height: 126px; }
+  .sess .pv .live { position: absolute; left: 8px; top: 8px; }
+  .sess .pv .tm { position: absolute; right: 8px; top: 8px; background: rgba(0,0,0,.6); color: #fff; font-weight: 700; font-size: 12px; padding: 3px 8px; border-radius: 6px; }
+  .sess .pv .ai { position: absolute; left: 8px; bottom: 8px; background: rgba(0,0,0,.62); color: #fff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; display: flex; gap: 5px; align-items: center; }
+  .dest { display: flex; gap: 8px; flex-wrap: wrap; }
+  .dest .d { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px; }
+  .dest .d b { font-size: 14px; } .dest .d div span { font-size: 11px; color: var(--muted); display: block; white-space: nowrap; }
+  .dest .d.off { background: #fafbfd; opacity: .75; }
+  .ptile { border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .caps { display: flex; gap: 5px; flex-wrap: wrap; }
+  .alert { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
+  .alert:last-child { border-bottom: 0; }
+  .tl { position: relative; padding-left: 18px; }
+  .tl::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+  .tl .it { position: relative; display: grid; grid-template-columns: 58px 1fr auto; gap: 10px; align-items: center; padding: 7px 0; }
+  .tl .it::before { content: ''; position: absolute; left: -17px; top: 14px; width: 10px; height: 10px; border-radius: 50%; background: #fff; border: 2px solid var(--primary); }
+  .tl .it.now::before { background: var(--red); border-color: var(--red); box-shadow: 0 0 0 4px var(--red-soft); }
+  .sysg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sysg .s { border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; display: flex; gap: 10px; align-items: center; }
+  .flow { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
+  .flow .f { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; position: relative; }
+  .flow .f .n { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 12px; background: var(--primary-soft); color: var(--primary); flex-shrink: 0; }
+  .flow .f.done .n { background: var(--green); color: #fff; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Tổng quan MateLive</h1><p>Vận hành livestream bán hàng đa kênh với AI — một màn hình cho toàn bộ hoạt động hôm nay.</p></div>
+    <div class="actions">
+      <div class="btn"><i data-lucide="calendar"></i>Hôm nay, Thứ Ba 29/09/2026<i data-lucide="chevron-down"></i></div>
+      <div class="btn primary"><i data-lucide="plus"></i>Tạo phiên live</div>
+    </div>
+  </div>
+
+  <div class="kpis grid">
+    <div class="card kpi"><div class="icon-box ib-red"><i data-lucide="radio"></i></div><div><div class="t">Phiên đang live</div><div class="v">2</div><div class="s">1 AI Host · 1 Hybrid</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-blue"><i data-lucide="link-2"></i></div><div><div class="t">Tài khoản đã kết nối</div><div class="v">9 <span class="d down">2 cần xử lý</span></div><div class="s">trên 4 nền tảng</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-teal"><i data-lucide="messages-square"></i></div><div><div class="t">Bình luận chờ xử lý</div><div class="v">12 <span class="d down">3 quá 2 phút</span></div><div class="s">AI đã tự trả lời 418</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-pink"><i data-lucide="flame"></i></div><div><div class="t">Chuyển đổi trực tiếp</div><div class="v">28 <span class="d">↑ 40%</span></div><div class="s">khách muốn mua ngay</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-green"><i data-lucide="circle-dollar-sign"></i></div><div><div class="t">Doanh thu / Hoa hồng</div><div class="v">12,45tr <span class="d">↑ 18%</span></div><div class="s">Hoa hồng ước tính 2,49tr</div></div></div>
+  </div>
+
+  <div class="r2">
+    <div class="card">
+      <div class="card-h"><span class="dot red"></span><h3>Phiên live đang chạy</h3><span class="link">Mở Control Room <i data-lucide="arrow-right"></i></span></div>
+      <div class="sess">
+        <div class="pv"><img class="thumb" src="../../assets/img/host-thumb.jpg"><span class="badge solid-red live">● ĐANG LIVE</span><span class="tm">01:24:16</span><span class="ai"><i data-lucide="sparkles" style="width:12px;height:12px"></i>Nội dung do AI tạo</span></div>
+        <div class="col" style="gap:7px">
+          <div class="row"><div class="bold" style="font-size:16px">Đẹp rạng rỡ cùng MateBeauty</div><span class="badge purple"><i data-lucide="bot"></i>AI Host</span><span class="badge gray">Tự dừng sau 36 phút</span></div>
+          <div class="row small muted"><img class="avatar" src="../../assets/img/host-avatar.jpg" style="width:24px;height:24px">Mai Anh (AI) · Giọng: Nữ miền Nam – bán hàng sôi nổi · 12 sản phẩm</div>
+          <div class="dest">
+            <div class="d"><span class="plat md yt"></span><div><b>2,3K</b><span>YouTube</span></div></div>
+            <div class="d"><span class="plat md fb"></span><div><b>12,4K</b><span>Facebook</span></div></div>
+            <div class="d off"><span class="plat md tt"></span><div><b>—</b><span>TikTok: không AI Host</span></div></div>
+            <div class="d off"><span class="plat md sp"></span><div><b>—</b><span>Shopee: 20:00 Hybrid</span></div></div>
+          </div>
+          <div class="row small"><span class="muted">01:24 / 2:00</span><div class="progress grow"><i style="width:70%"></i></div><span class="semi">còn 36 phút</span><span class="muted">·</span><span><b>320</b> đơn</span><span><b>1,2K</b> bình luận</span></div>
+        </div>
+      </div>
+      <div class="sess">
+        <div class="pv"><img class="thumb" src="../../assets/img/scene-2.jpg"><span class="badge solid-red live">● ĐANG LIVE</span><span class="tm">00:32:05</span><span class="ai"><i data-lucide="user-check" style="width:12px;height:12px"></i>Người dẫn thật: Thảo</span></div>
+        <div class="col" style="gap:7px">
+          <div class="row"><div class="bold" style="font-size:16px">Gia dụng thông minh – Deal trưa</div><span class="badge teal"><i data-lucide="user-check"></i>Hybrid</span><span class="badge gray">OBS · Studio 1</span></div>
+          <div class="row small muted"><i data-lucide="scroll-text" style="width:15px;height:15px"></i>AI nhắc kịch bản + gợi ý trả lời cho người dẫn · 6 sản phẩm</div>
+          <div class="dest">
+            <div class="d"><span class="plat md tt"></span><div><b>8,9K</b><span>TikTok Shop · MateLiving</span></div></div>
+            <div class="d off"><span class="plat md fb"></span><div><b>—</b><span>Không phát đồng thời</span></div></div>
+          </div>
+          <div class="row small"><span class="muted">00:32 / 1:30</span><div class="progress grow"><i style="width:36%"></i></div><span class="semi">còn 58 phút</span><span class="muted">·</span><span><b>86</b> đơn</span><span><b>540</b> bình luận</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><i data-lucide="link-2" style="color:var(--primary)"></i><h3>Tình trạng kênh</h3><span class="link">Quản lý kênh <i data-lucide="arrow-right"></i></span></div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+        <div class="ptile"><div class="row"><span class="plat md fb"></span><div><div class="semi">Facebook</div><div class="tiny muted">3 tài khoản · 2 Trang, 1 cá nhân</div></div></div><div class="row"><span class="badge green">2 hoạt động</span><span class="badge amber">1 hết hạn</span></div><div class="caps"><span class="badge blue">API chính thức</span><span class="badge gray">Đọc + trả lời comment</span></div></div>
+        <div class="ptile"><div class="row"><span class="plat md yt"></span><div><div class="semi">YouTube</div><div class="tiny muted">2 kênh</div></div></div><div class="row"><span class="badge green">1 hoạt động</span><span class="badge red">1 bị thu hồi quyền</span></div><div class="caps"><span class="badge blue">API chính thức</span><span class="badge gray">Tạo phiên tự động</span></div></div>
+        <div class="ptile"><div class="row"><span class="plat md tt"></span><div><div class="semi">TikTok Shop</div><div class="tiny muted">2 tài khoản</div></div></div><div class="row"><span class="badge green">2 sẵn sàng</span><span class="badge teal">Chỉ Hybrid</span></div><div class="caps"><span class="badge amber">Stream key</span><span class="badge gray">Comment: người vận hành</span></div></div>
+        <div class="ptile"><div class="row"><span class="plat md sp"></span><div><div class="semi">Shopee Live</div><div class="tiny muted">2 shop</div></div></div><div class="row"><span class="badge green">1 sẵn sàng</span><span class="badge amber">1 cần xác thực</span></div><div class="caps"><span class="badge amber">Stream key</span><span class="badge gray">Không phát lại video</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="r3">
+    <div class="card">
+      <div class="card-h"><i data-lucide="triangle-alert" style="color:var(--amber)"></i><h3>Cần chú ý</h3><span class="link">Xem tất cả <i data-lucide="arrow-right"></i></span></div>
+      <div class="alert"><div class="icon-box ib-red" style="width:34px;height:34px"><i data-lucide="flame"></i></div><div class="grow"><div class="semi">3 bình luận "muốn mua ngay" chưa trả lời quá 2 phút</div><div class="small muted">Phiên Gia dụng – TikTok Shop · người dẫn cần xử lý</div></div><span class="btn xs">Xử lý</span></div>
+      <div class="alert"><div class="icon-box ib-amber" style="width:34px;height:34px"><i data-lucide="key-round"></i></div><div class="grow"><div class="semi">MateFashion Store (Facebook) hết hạn token</div><div class="small muted">Phiên 19:30 sẽ không phát được nếu chưa kết nối lại</div></div><span class="btn xs">Kết nối lại</span></div>
+      <div class="alert"><div class="icon-box ib-purple" style="width:34px;height:34px"><i data-lucide="shield-check"></i></div><div class="grow"><div class="semi">Đã chặn AI Host cho TikTok Shop ở phiên 14:00</div><div class="small muted">Chính sách 7/2026: LIVE bán hàng phải có người nói trực tiếp → tự chuyển Hybrid</div></div><span class="btn xs">Xem</span></div>
+    </div>
+    <div class="card">
+      <div class="card-h"><i data-lucide="calendar-days" style="color:var(--primary)"></i><h3>Lịch hôm nay</h3><span class="sub">TikTok Shop luôn là phiên riêng</span><span class="link">Lịch <i data-lucide="arrow-right"></i></span></div>
+      <div class="tl">
+        <div class="it"><b class="small">08:00</b><div class="row small"><span class="plat sm yt"></span><span class="plat sm fb"></span>Skincare buổi sáng · AI Host · 2h</div><span class="badge gray">Đã xong</span></div>
+        <div class="it now"><b class="small">11:30</b><div class="row small"><span class="plat sm yt"></span><span class="plat sm fb"></span>Đẹp rạng rỡ · AI Host · 2h</div><span class="badge solid-red">LIVE</span></div>
+        <div class="it now"><b class="small">12:00</b><div class="row small"><span class="plat sm tt"></span>Gia dụng Deal trưa · Hybrid · 1h30</div><span class="badge solid-red">LIVE</span></div>
+        <div class="it"><b class="small">19:30</b><div class="row small"><span class="plat sm fb"></span>Thời trang tối · Studio OBS · 1h</div><span class="badge amber">Thiếu token</span></div>
+        <div class="it"><b class="small">20:00</b><div class="row small"><span class="plat sm sp"></span>Deal 10.10 sớm · Hybrid · 2h</div><span class="badge blue">Sẵn sàng</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h"><i data-lucide="server" style="color:var(--green)"></i><h3>Năng lực hệ thống</h3></div>
+      <div class="sysg">
+        <div class="s"><i data-lucide="cast"></i><div><div class="semi small">OBS Bridge</div><div class="tiny" style="color:var(--green)">● 2 máy online</div></div></div>
+        <div class="s"><i data-lucide="film"></i><div><div class="semi small">FFmpeg Worker</div><div class="tiny" style="color:var(--green)">● 3/8 luồng</div></div></div>
+        <div class="s"><i data-lucide="waypoints"></i><div><div class="semi small">MediaMTX</div><div class="tiny" style="color:var(--green)">● 6 kết nối</div></div></div>
+        <div class="s"><i data-lucide="brain"></i><div><div class="semi small">AI trả lời</div><div class="tiny" style="color:var(--green)">● 1,8s trung bình</div></div></div>
+        <div class="s"><i data-lucide="audio-lines"></i><div><div class="semi small">AI giọng nói</div><div class="tiny" style="color:var(--green)">● độ trễ 0,6s</div></div></div>
+        <div class="s"><i data-lucide="cpu"></i><div><div class="semi small">GPU AI Host</div><div class="tiny" style="color:var(--amber)">● 78% · 1/2 luồng</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:14px 18px">
+    <div class="card-h" style="margin-bottom:10px"><i data-lucide="zap" style="color:var(--primary)"></i><h3>Luồng làm việc</h3><span class="sub">8 bước từ kết nối tài khoản đến báo cáo</span></div>
+    <div class="flow">
+      <div class="f done"><span class="n">✓</span><div><div class="semi small">Kết nối tài khoản</div><div class="tiny muted">FB, YouTube, TikTok, Shopee</div></div></div>
+      <div class="f done"><span class="n">✓</span><div><div class="semi small">Thêm sản phẩm</div><div class="tiny muted">Hàng thật hoặc link affiliate</div></div></div>
+      <div class="f done"><span class="n">✓</span><div><div class="semi small">Hồ sơ tư vấn</div><div class="tiny muted">Thông tin để AI trả lời đúng</div></div></div>
+      <div class="f done"><span class="n">✓</span><div><div class="semi small">AI nhân vật & giọng</div><div class="tiny muted">Có nhãn nội dung AI</div></div></div>
+      <div class="f"><span class="n">5</span><div><div class="semi small">Kịch bản AI</div><div class="tiny muted">Tự đổi theo bình luận</div></div></div>
+      <div class="f"><span class="n">6</span><div><div class="semi small">Tạo phiên live</div><div class="tiny muted">Chế độ, thời lượng, kênh</div></div></div>
+      <div class="f"><span class="n">7</span><div><div class="semi small">Control Room</div><div class="tiny muted">OBS / AI Host / Hybrid</div></div></div>
+      <div class="f"><span class="n">8</span><div><div class="semi small">Bình luận & báo cáo</div><div class="tiny muted">Lọc chuyển đổi, tối ưu</div></div></div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'dashboard',
+  spec: {
+    num: '02', title: 'Tổng quan', tags: [['fix', 'Cập nhật từ v2 trang 1']], phase: 'GĐ 1 + GĐ 12',
+    notes: [
+      'Mỗi phiên hiện rõ chế độ (AI Host / Hybrid), thời lượng còn lại và kênh nào đang phát — kênh không phù hợp chính sách hiện xám kèm lý do.',
+      'KPI "Chuyển đổi trực tiếp" và cảnh báo bình luận chờ quá 2 phút giúp không bỏ lỡ khách muốn mua.',
+      'Lịch hôm nay: TikTok Shop luôn là phiên riêng (nội dung, người dẫn riêng), không phát chung một luồng với nền tảng khác.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

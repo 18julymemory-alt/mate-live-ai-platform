@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Sản phẩm & Affiliate</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .kpis { grid-template-columns: repeat(4, 1fr); }
+  .kpis .card { padding: 12px 18px; }
+  .body { display: grid; grid-template-columns: 1fr 430px; gap: 16px; flex: 1; min-height: 0; }
+  .pr { display: flex; gap: 10px; align-items: center; }
+  .pr img { width: 38px; height: 38px; border-radius: 8px; object-fit: cover; }
+  .pr .n { font-weight: 600; font-size: 13px; white-space: nowrap; }
+  .pr .i { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .tbl td { white-space: nowrap; }
+  .links { display: flex; gap: 5px; }
+  .links .l { position: relative; }
+  .links .l i.st { position: absolute; right: -4px; bottom: -4px; width: 11px; height: 11px; border-radius: 50%; border: 2px solid #fff; background: var(--green); }
+  .links .l i.st.bad { background: var(--red); }
+  .links .l.off { opacity: .22; }
+  .kb { display: flex; align-items: center; gap: 8px; width: 120px; }
+  .kb .progress { flex: 1; height: 6px; }
+  .tabs { display: flex; gap: 18px; border-bottom: 1px solid var(--line); margin: 4px 0 12px; }
+  .tabs span { padding: 8px 0; font-weight: 600; font-size: 13px; color: var(--muted); }
+  .tabs span.on { color: var(--primary); border-bottom: 2px solid var(--primary); }
+  .offer { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 7px; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Sản phẩm & Affiliate</h1><p>Hàng thật của shop bạn hoặc sản phẩm affiliate — công nghệ, mỹ phẩm, gia dụng… Mỗi sản phẩm có link theo từng sàn và hồ sơ tư vấn để AI trả lời đúng.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="file-spreadsheet"></i>Nhập Excel / CSV</div><div class="btn"><i data-lucide="link"></i>Nhập từ link sàn</div><div class="btn primary"><i data-lucide="plus"></i>Thêm sản phẩm</div></div>
+  </div>
+
+  <div class="kpis grid">
+    <div class="card kpi"><div class="icon-box ib-purple"><i data-lucide="package"></i></div><div><div class="t">Sản phẩm đang bán</div><div class="v">156 <span class="d">↑ 12%</span></div><div class="s">112 hàng thật · 44 affiliate</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-blue"><i data-lucide="link"></i></div><div><div class="t">Link affiliate</div><div class="v">89 <span class="d down">3 link lỗi</span></div><div class="s">Shopee · TikTok Shop · Lazada · web</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-teal"><i data-lucide="book-open"></i></div><div><div class="t">Hồ sơ tư vấn đủ</div><div class="v">118/156</div><div class="s">AI chỉ tư vấn sản phẩm đủ hồ sơ</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-green"><i data-lucide="coins"></i></div><div><div class="t">Hoa hồng tháng 9</div><div class="v">18,6tr <span class="d">↑ 9%</span></div><div class="s">đối soát từ báo cáo của sàn</div></div></div>
+  </div>
+
+  <div class="body">
+    <div class="col" style="gap:16px;min-width:0">
+    <div class="card" style="padding:14px 16px">
+      <div class="row" style="margin-bottom:12px;flex-wrap:nowrap">
+        <span class="chip active">Tất cả · 238</span>
+        <span class="chip"><i data-lucide="store"></i>Hàng thật · 112</span>
+        <span class="chip"><i data-lucide="link"></i>Affiliate · 89</span>
+        <span class="chip"><i data-lucide="smartphone"></i>Công nghệ · 46</span>
+        <span class="chip">Mỹ phẩm · 58</span>
+        <span class="chip">Gia dụng · 42</span>
+        <span class="chip">Thời trang · 36</span>
+        <div class="right btn sm"><i data-lucide="filter"></i>Bộ lọc</div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th style="width:28px"><span class="check"></span></th><th>Sản phẩm</th><th>Nguồn</th><th>Danh mục</th><th>Link theo sàn</th><th>Giá bán</th><th>Hoa hồng</th><th>Hồ sơ tư vấn</th><th>Trạng thái</th></tr></thead>
+        <tbody>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-earbuds.jpg"><div><div class="n">Tai nghe Bluetooth ANC X9</div><div class="i">SKU ML-PROD-001 · tồn 120</div></div></div></td><td><span class="badge green"><i data-lucide="store"></i>Hàng thật</span></td><td><span class="badge blue">Công nghệ</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm sp"></span><i class="st"></i></span><span class="l"><span class="plat sm tt"></span><i class="st"></i></span><span class="l off"><span class="plat sm fb"></span></span></div></td><td class="semi">1.290.000đ</td><td class="muted">—</td><td><div class="kb"><div class="progress"><i style="width:100%;background:var(--green)"></i></div><span class="tiny semi">100%</span></div></td><td><span class="toggle green on"></span></td></tr>
+          <tr style="background:#fbfaff"><td><span class="check on"></span></td><td><div class="pr"><img src="../../assets/img/p-serum-sm.jpg"><div><div class="n">Serum dưỡng trắng MieSkin 10X</div><div class="i">SKU ML-AFF-002</div></div></div></td><td><span class="badge purple"><i data-lucide="link"></i>Affiliate</span></td><td><span class="badge pink">Mỹ phẩm</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm sp"></span><i class="st"></i></span><span class="l"><span class="plat sm tt"></span><i class="st"></i></span><span class="l off"><span class="plat sm yt"></span></span></div></td><td class="semi">450.000đ</td><td class="semi" style="color:var(--green)">20%</td><td><div class="kb"><div class="progress"><i style="width:90%;background:var(--green)"></i></div><span class="tiny semi">90%</span></div></td><td><span class="toggle green on"></span></td></tr>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-airfryer.jpg"><div><div class="n">Nồi chiên không dầu Kalite 5L</div><div class="i">SKU ML-PROD-003 · tồn 56</div></div></div></td><td><span class="badge green"><i data-lucide="store"></i>Hàng thật</span></td><td><span class="badge teal">Gia dụng</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm sp"></span><i class="st"></i></span><span class="l"><span class="plat sm tt"></span><i class="st"></i></span><span class="l"><span class="plat sm fb"></span><i class="st"></i></span></div></td><td class="semi">1.990.000đ</td><td class="muted">—</td><td><div class="kb"><div class="progress"><i style="width:85%;background:var(--green)"></i></div><span class="tiny semi">85%</span></div></td><td><span class="toggle green on"></span></td></tr>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-combo-sm.jpg"><div><div class="n">Combo 3 món MieSkin</div><div class="i">SKU ML-AFF-004</div></div></div></td><td><span class="badge purple"><i data-lucide="link"></i>Affiliate</span></td><td><span class="badge pink">Mỹ phẩm</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm sp"></span><i class="st"></i></span><span class="l"><span class="plat sm tt"></span><i class="st"></i></span></div></td><td class="semi">899.000đ</td><td class="semi" style="color:var(--green)">15%</td><td><div class="kb"><div class="progress"><i style="width:60%;background:var(--amber)"></i></div><span class="tiny semi">60%</span></div></td><td><span class="toggle green on"></span></td></tr>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-tshirt.jpg"><div><div class="n">Áo thun basic unisex</div><div class="i">SKU ML-PROD-005 · tồn 342</div></div></div></td><td><span class="badge green"><i data-lucide="store"></i>Hàng thật</span></td><td><span class="badge amber">Thời trang</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm sp"></span><i class="st"></i></span><span class="l"><span class="plat sm tt"></span><i class="st"></i></span><span class="l"><span class="plat sm fb"></span><i class="st"></i></span></div></td><td class="semi">199.000đ</td><td class="muted">—</td><td><div class="kb"><div class="progress"><i style="width:100%;background:var(--green)"></i></div><span class="tiny semi">100%</span></div></td><td><span class="toggle green on"></span></td></tr>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-blender.jpg"><div><div class="n">Máy xay sinh tố Elmich</div><div class="i">SKU ML-AFF-006</div></div></div></td><td><span class="badge purple"><i data-lucide="link"></i>Affiliate</span></td><td><span class="badge teal">Gia dụng</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm sp"></span><i class="st bad"></i></span><span class="l"><span class="plat sm tt"></span><i class="st"></i></span></div></td><td class="semi">1.250.000đ</td><td class="semi" style="color:var(--green)">12%</td><td><div class="kb"><div class="progress"><i style="width:40%;background:var(--red)"></i></div><span class="tiny semi">40%</span></div></td><td><span class="badge red">Link Shopee lỗi</span></td></tr>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-iphone.jpg"><div><div class="n">iPhone 15 Pro Max 256GB</div><div class="i">SKU ML-AFF-008</div></div></div></td><td><span class="badge purple"><i data-lucide="link"></i>Affiliate</span></td><td><span class="badge blue">Công nghệ</span></td>
+            <td><div class="links"><span class="l"><span class="plat sm tt"></span><i class="st"></i></span><span class="l"><span class="plat sm sp"></span><i class="st"></i></span></div></td><td class="semi">28.990.000đ</td><td class="semi" style="color:var(--green)">3%</td><td><div class="kb"><div class="progress"><i style="width:95%;background:var(--green)"></i></div><span class="tiny semi">95%</span></div></td><td><span class="toggle green on"></span></td></tr>
+          <tr><td><span class="check"></span></td><td><div class="pr"><img src="../../assets/img/p-milk.jpg"><div><div class="n">Sữa bột cho bé 0–12 tháng</div><div class="i">SKU ML-PROD-007 · tồn 89</div></div></div></td><td><span class="badge green"><i data-lucide="store"></i>Hàng thật</span></td><td><span class="badge gray">Mẹ & bé</span></td>
+            <td><div class="links"><span class="l off"><span class="plat sm sp"></span></span><span class="l off"><span class="plat sm tt"></span></span></div></td><td class="semi">615.000đ</td><td class="muted">—</td><td colspan="2"><span class="badge red"><i data-lucide="ban"></i>Cấm quảng cáo: SP dinh dưỡng trẻ &lt; 24 tháng</span></td></tr>
+        </tbody>
+      </table>
+      <div class="row small muted" style="margin-top:10px"><span>Hiển thị 8 / 238</span><span class="right row" style="gap:6px"><span class="btn xs">‹</span><span class="btn xs soft">1</span><span class="btn xs">2</span><span class="btn xs">3</span><span class="btn xs">›</span></span></div>
+    </div>
+    <div class="card" style="flex:1">
+      <div class="card-h"><i data-lucide="radio" style="color:var(--red)"></i><h3>Đang gắn vào phiên live</h3><span class="sub">24 sản phẩm · 5 phiên</span><span class="link">Quản lý phân bổ <i data-lucide="arrow-right"></i></span></div>
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:12px">
+        <div class="row" style="border:1px solid var(--line);border-radius:12px;padding:10px"><img class="thumb" src="../../assets/img/host-thumb.jpg" style="width:84px;height:52px"><div><div class="small semi">Đẹp rạng rỡ</div><div class="tiny muted">12 SP · AI Host</div><span class="badge solid-red" style="margin-top:4px">LIVE</span></div></div>
+        <div class="row" style="border:1px solid var(--line);border-radius:12px;padding:10px"><img class="thumb" src="../../assets/img/scene-3.jpg" style="width:84px;height:52px"><div><div class="small semi">Gia dụng Deal trưa</div><div class="tiny muted">6 SP · Hybrid</div><span class="badge solid-red" style="margin-top:4px">LIVE</span></div></div>
+        <div class="row" style="border:1px solid var(--line);border-radius:12px;padding:10px"><img class="thumb" src="../../assets/img/tpl-5.jpg" style="width:84px;height:52px"><div><div class="small semi">Công nghệ đỉnh cao</div><div class="tiny muted">6 SP · Studio OBS</div><span class="badge blue" style="margin-top:4px">Thứ Năm 20:00</span></div></div>
+        <div class="row" style="border:1px solid var(--line);border-radius:12px;padding:10px"><img class="thumb" src="../../assets/img/tpl-3.jpg" style="width:84px;height:52px"><div><div class="small semi">Deal 10.10 sớm</div><div class="tiny muted">10 SP · Hybrid</div><span class="badge blue" style="margin-top:4px">Hôm nay 20:00</span></div></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column">
+      <div class="card-h" style="margin-bottom:8px"><h3>Chi tiết sản phẩm</h3><span class="link">Mở hồ sơ tư vấn <i data-lucide="arrow-right"></i></span></div>
+      <div class="row"><img class="thumb" src="../../assets/img/p-serum.jpg" style="width:64px;height:64px"><div><div class="bold">Serum dưỡng trắng MieSkin 10X</div><div class="row small" style="margin-top:4px"><span class="badge purple"><i data-lucide="link"></i>Affiliate</span><span class="badge green">Đang bán</span></div></div></div>
+      <div class="tabs"><span class="on">Thông tin chung</span><span>Link từng sàn</span><span>Hồ sơ tư vấn</span><span>Lịch sử</span></div>
+      <div class="label">Nguồn sản phẩm <span class="req">*</span></div>
+      <div class="row small" style="gap:18px;margin-bottom:10px"><span class="row"><span class="radio"></span>Hàng thật</span><span class="row"><span class="radio on"></span>Affiliate</span><span class="row"><span class="radio"></span>Sản phẩm số</span></div>
+      <div class="label">Link affiliate theo sàn</div>
+      <div class="offer"><span class="plat md sp"></span><div><div class="small semi">Shopee · hoa hồng 20%</div><div class="tiny muted">s.shopee.vn/aff/Mie10X · kiểm tra 5 phút trước</div></div><span class="badge green">Hoạt động</span></div>
+      <div class="offer"><span class="plat md tt"></span><div><div class="small semi">TikTok Shop · hoa hồng 15%</div><div class="tiny muted">Link affiliate TikTok Shop · chia sẻ ra ngoài TikTok</div></div><span class="badge green">Hoạt động</span></div>
+      <div class="offer" style="border-style:dashed"><span class="icon-box ib-purple" style="width:28px;height:28px;border-radius:8px"><i data-lucide="plus" style="width:16px;height:16px"></i></span><div class="small semi muted">Thêm link Lazada / website</div><span></span></div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px;margin-top:4px">
+        <div><div class="label">Giá hiển thị</div><div class="input">450.000 <span class="right muted">đ</span></div></div>
+        <div><div class="label">Hành động trong live</div><div class="input">Ghim link + mã giảm <i data-lucide="chevron-down" class="right"></i></div></div>
+      </div>
+      <div class="callout ok" style="margin-top:12px"><i data-lucide="brain"></i><div><b>Hồ sơ tư vấn 90%</b> — đủ để AI tư vấn. Còn thiếu: "Chống chỉ định". Khi hồ sơ &lt; 80% AI chỉ trả lời giá & link, còn lại chuyển người vận hành.</div></div>
+      <div class="row" style="margin-top:auto;padding-top:12px"><span class="row small"><span class="toggle on"></span>Cho phép AI dùng khi tư vấn</span><div class="btn primary sm right">Lưu thay đổi</div></div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'products',
+  search: 'Tìm sản phẩm, affiliate, danh mục, thương hiệu…',
+  spec: {
+    num: '05', title: 'Sản phẩm & Affiliate', tags: [['fix', 'Cập nhật từ v2 trang 3']], phase: 'GĐ 3',
+    notes: [
+      'Ba loại nguồn: hàng thật của shop, link affiliate, sản phẩm số. Một sản phẩm có nhiều link theo sàn (Shopee, TikTok Shop, Lazada, web), tự kiểm tra link chết.',
+      'Cột "Hồ sơ tư vấn" cho biết AI đã đủ thông tin chưa; dưới 80% thì AI không tự tư vấn, chỉ gửi giá/link.',
+      'Chặn sẵn nhóm hàng bị cấm/hạn chế quảng cáo (vd. sản phẩm dinh dưỡng cho trẻ dưới 24 tháng) để tránh vi phạm khi live.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

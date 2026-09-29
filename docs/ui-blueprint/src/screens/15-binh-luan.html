@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Bình luận & Chuyển đổi</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .kpis { grid-template-columns: repeat(5, 1fr); }
+  .kpis .card { padding: 12px 16px; }
+  .kpi .v { font-size: 24px; }
+  .body { display: grid; grid-template-columns: 250px 1fr 430px; gap: 16px; flex: 1; min-height: 0; }
+  .f { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; font-size: 13.5px; font-weight: 500; }
+  .f.on { background: var(--primary-soft); color: var(--primary); font-weight: 700; }
+  .f .c { margin-left: auto; font-size: 12px; font-weight: 700; background: #f0f1f6; color: var(--muted); border-radius: 8px; padding: 1px 8px; }
+  .f.conv { color: var(--red); font-weight: 700; }
+  .f.conv .c { background: var(--red); color: #fff; }
+  .f svg.lucide { width: 17px; height: 17px; }
+  .cm { display: grid; grid-template-columns: 22px 44px 1fr 220px; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; }
+  .cm.conv { border: 1.5px solid #ff9aa8; background: #fff6f7; box-shadow: inset 4px 0 0 var(--red); }
+  .cm .av-wrap img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+  .cm .who { display: flex; gap: 8px; align-items: center; font-size: 13.5px; }
+  .cm .msg { font-size: 13.5px; margin: 5px 0 8px; line-height: 1.5; }
+  .cm.conv .msg { font-weight: 700; color: #121528; font-size: 14px; }
+  .cm .intent { border-left: 1px dashed var(--line-2); padding-left: 12px; font-size: 12px; }
+  .cm .intent .row { gap: 6px; }
+  .cm .intent li { list-style: none; display: flex; gap: 6px; color: var(--text-2); margin-top: 4px; }
+  .cm .intent li svg.lucide { width: 13px; height: 13px; color: var(--green); margin-top: 2px; }
+  .pii { background: #eef0f6; color: var(--muted); border-radius: 5px; padding: 0 6px; font-weight: 600; font-size: 12.5px; }
+  .why li { list-style: none; display: flex; gap: 8px; font-size: 12.5px; padding: 3px 0; }
+  .why li svg.lucide { width: 14px; height: 14px; color: var(--green); margin-top: 2px; }
+  .modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .modes span { text-align: center; border: 1.5px solid var(--line); border-radius: 9px; padding: 6px 0; font-size: 12px; font-weight: 600; }
+  .modes span.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Bình luận & Chuyển đổi</h1><p>AI đọc mọi bình luận, tách "muốn mua ngay" khỏi "cần tư vấn". Bình luận chuyển đổi được tô đỏ, chữ đậm và đẩy lên đầu.</p></div>
+    <div class="actions"><div class="btn"><i data-lucide="calendar"></i>Phiên: Đẹp rạng rỡ · hôm nay<i data-lucide="chevron-down"></i></div><div class="btn"><i data-lucide="download"></i>Xuất báo cáo</div></div>
+  </div>
+
+  <div class="kpis grid">
+    <div class="card kpi"><div class="icon-box ib-purple"><i data-lucide="messages-square"></i></div><div><div class="t">Tổng bình luận</div><div class="v">1.248</div><div class="s">YouTube 412 · Facebook 836</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-red"><i data-lucide="flame"></i></div><div><div class="t">Chuyển đổi trực tiếp</div><div class="v" style="color:var(--red)">86</div><div class="s">muốn mua / hỏi cách đặt</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-green"><i data-lucide="shopping-cart"></i></div><div><div class="t">Đã chốt đơn</div><div class="v">28 <span class="d">↑ 33%</span></div><div class="s">qua link ghim trong 30 phút</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-teal"><i data-lucide="message-circle-question"></i></div><div><div class="t">Tư vấn sản phẩm</div><div class="v">523</div><div class="s">AI trả lời 94% · trung bình 1,8s</div></div></div>
+    <div class="card kpi"><div class="icon-box ib-amber"><i data-lucide="hourglass"></i></div><div><div class="t">Chờ người vận hành</div><div class="v">12</div><div class="s">3 chờ quá 2 phút</div></div></div>
+  </div>
+
+  <div class="body">
+    <div class="card">
+      <div class="card-h" style="margin-bottom:6px"><h3>Loại bình luận</h3></div>
+      <div class="f"><i data-lucide="inbox"></i>Tất cả<span class="c">1.248</span></div>
+      <div class="f conv on" style="background:var(--red-soft)"><i data-lucide="flame"></i>Chuyển đổi trực tiếp<span class="c">86</span></div>
+      <div class="f" style="color:var(--green)"><i data-lucide="circle-check"></i>Chốt đơn<span class="c">28</span></div>
+      <div class="f"><i data-lucide="message-circle-question" style="color:var(--teal)"></i>Tư vấn sản phẩm<span class="c">523</span></div>
+      <div class="f"><i data-lucide="circle-help" style="color:var(--amber)"></i>Hỏi giá / khuyến mãi<span class="c">398</span></div>
+      <div class="f"><i data-lucide="frown" style="color:var(--pink)"></i>Khiếu nại<span class="c">12</span></div>
+      <div class="f"><i data-lucide="ban" style="color:var(--muted)"></i>Spam / quảng cáo<span class="c">201</span></div>
+      <div class="hr"></div>
+      <div class="card-h" style="margin-bottom:6px"><h3>Nền tảng</h3></div>
+      <div class="f"><span class="plat sm fb"></span>Facebook<span class="c">836</span></div>
+      <div class="f"><span class="plat sm yt"></span>YouTube<span class="c">412</span></div>
+      <div class="f" style="color:var(--muted)"><span class="plat sm tt"></span>TikTok Shop<span class="c">nhập tay</span></div>
+      <div class="f" style="color:var(--muted)"><span class="plat sm sp"></span>Shopee Live<span class="c">nhập tay</span></div>
+      <div class="hr"></div>
+      <div class="card-h" style="margin-bottom:6px"><h3>Xử lý</h3></div>
+      <div class="f"><span class="dot amber"></span>Chưa xử lý<span class="c">12</span></div>
+      <div class="f"><span class="dot"></span>Đã xử lý<span class="c">1.236</span></div>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div class="row" style="margin-bottom:12px"><span class="check"></span><div class="btn sm">Mới nhất<i data-lucide="chevron-down"></i></div><div class="input grow" style="color:var(--muted-2)"><i data-lucide="search"></i>Tìm trong bình luận…</div><div class="btn sm"><i data-lucide="list-checks"></i>Trả lời hàng loạt</div></div>
+
+      <div class="cm conv"><span class="check"></span><div class="av-wrap"><img src="../../assets/img/av-1.jpg"><span class="plat sm fb"></span></div>
+        <div><div class="who"><b>Trần Mai Anh</b><span class="badge pink">Khách hàng tiềm năng</span><span class="tiny muted">1 phút trước</span></div>
+          <div class="msg">Em muốn mua sản phẩm này, shop tư vấn giúp em đặt sao để nhận hàng trước thứ 7 ạ?</div>
+          <div class="row"><img class="thumb" src="../../assets/img/p-serum.jpg" style="width:34px;height:34px;border-radius:7px"><span class="small semi">Serum Dưỡng Trắng MateBeauty 30ml · 349.000đ</span><span class="right row" style="gap:6px"><span class="btn xs"><i data-lucide="link"></i>Gửi link</span><span class="btn xs primary"><i data-lucide="send"></i>Trả lời ngay</span></span></div></div>
+        <div class="intent"><div class="row"><span class="badge solid-red"><i data-lucide="flame"></i>Chuyển đổi trực tiếp</span><b style="color:var(--red)">95%</b></div><ul><li><i data-lucide="check"></i>Ý định rõ: "muốn mua"</li><li><i data-lucide="check"></i>Hỏi thời gian nhận hàng</li><li><i data-lucide="check"></i>Nhắc sản phẩm đang ghim</li></ul></div></div>
+
+      <div class="cm"><span class="check"></span><div class="av-wrap"><img src="../../assets/img/av-2.jpg"><span class="plat sm yt"></span></div>
+        <div><div class="who"><b>Nguyễn Quang Huy</b><span class="tiny muted">3 phút trước</span></div>
+          <div class="msg">Sản phẩm này dùng cho da dầu được không ạ? Mình đang bị mụn ẩn thì có hợp không?</div>
+          <div class="row" style="gap:6px"><span class="badge green"><i data-lucide="mic"></i>AI đã trả lời trong live</span><span class="btn xs">Xem câu trả lời</span></div></div>
+        <div class="intent"><div class="row"><span class="badge teal"><i data-lucide="message-circle-question"></i>Tư vấn sản phẩm</span><b style="color:var(--teal)">88%</b></div><ul><li><i data-lucide="check"></i>Hỏi về công dụng</li><li><i data-lucide="check"></i>Quan tâm loại da</li><li><i data-lucide="check"></i>Chưa có ý định mua ngay</li></ul></div></div>
+
+      <div class="cm conv"><span class="check"></span><div class="av-wrap"><img src="../../assets/img/av-3.jpg"><span class="plat sm fb"></span></div>
+        <div><div class="who"><b>Lê Thị Kim Ngân</b><span class="tiny muted">5 phút trước</span></div>
+          <div class="msg">Mình chốt 2 combo nhé shop! Địa chỉ <span class="pii">•••• Q.1</span>, SĐT <span class="pii">09•• ••• 456</span></div>
+          <div class="row" style="gap:6px"><span class="badge amber"><i data-lucide="shield-alert"></i>Đã ẩn SĐT/địa chỉ khỏi màn hình</span><span class="right row" style="gap:6px"><span class="btn xs"><i data-lucide="message-circle"></i>Mời nhắn riêng</span><span class="btn xs primary"><i data-lucide="link"></i>Gửi link combo</span></span></div></div>
+        <div class="intent"><div class="row"><span class="badge green"><i data-lucide="circle-check"></i>Chốt đơn</span><b style="color:var(--green)">92%</b></div><ul><li><i data-lucide="check"></i>Xác nhận mua hàng</li><li><i data-lucide="check"></i>Số lượng cụ thể: 2</li><li><i data-lucide="check"></i>Tự để lộ thông tin cá nhân → che</li></ul></div></div>
+
+      <div class="cm"><span class="check"></span><div class="av-wrap"><img src="../../assets/img/av-4.jpg"><span class="plat sm yt"></span></div>
+        <div><div class="who"><b>Phạm Minh Thư</b><span class="tiny muted">6 phút trước</span></div>
+          <div class="msg">Có size nhỏ hơn không ạ? Giá đang khuyến mãi đến khi nào?</div>
+          <div class="row" style="gap:6px"><span class="badge purple"><i data-lucide="sparkles"></i>AI đã soạn · chờ duyệt</span><span class="btn xs primary"><i data-lucide="check"></i>Duyệt & gửi</span></div></div>
+        <div class="intent"><div class="row"><span class="badge amber"><i data-lucide="circle-help"></i>Hỏi giá / khuyến mãi</span><b style="color:var(--amber)">78%</b></div><ul><li><i data-lucide="check"></i>Hỏi kích thước</li><li><i data-lucide="check"></i>Hỏi thời hạn khuyến mãi</li></ul></div></div>
+      <div class="cm conv" style="margin-bottom:0"><span class="check"></span><div class="av-wrap"><img src="../../assets/img/av-5.jpg"><span class="plat sm fb"></span></div>
+        <div><div class="who"><b>Hoàng Gia Bảo</b><span class="tiny muted">8 phút trước</span></div>
+          <div class="msg">Shop ơi còn hàng không? Mình đặt ngay 1 hộp, cho mình link thanh toán với!</div>
+          <div class="row" style="gap:6px"><span class="badge green"><i data-lucide="check"></i>Đã gửi link · khách đã nhấp</span></div></div>
+        <div class="intent"><div class="row"><span class="badge solid-red"><i data-lucide="flame"></i>Chuyển đổi trực tiếp</span><b style="color:var(--red)">90%</b></div><ul><li><i data-lucide="check"></i>Hỏi tình trạng hàng</li><li><i data-lucide="check"></i>Muốn đặt ngay, cần link</li></ul></div></div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="flame" style="color:var(--red)"></i><h3>Phân tích AI</h3><span class="badge solid-red right">Chuyển đổi trực tiếp · 95%</span></div>
+        <div class="row" style="margin-bottom:8px"><img class="avatar" src="../../assets/img/av-1.jpg" style="width:40px;height:40px"><div><div class="semi">Trần Mai Anh</div><div class="tiny muted">Facebook · đã tương tác 8 lần · 1 đơn trước đây</div></div></div>
+        <ul class="why"><li><i data-lucide="check"></i>Dùng từ rõ ràng: "muốn mua"</li><li><i data-lucide="check"></i>Hỏi giao hàng & thời gian nhận</li><li><i data-lucide="check"></i>Nhắc sản phẩm cụ thể trong live</li></ul>
+      </div>
+      <div class="card" style="flex:1;display:flex;flex-direction:column">
+        <div class="card-h"><i data-lucide="reply" style="color:var(--primary)"></i><h3>Gợi ý phản hồi</h3></div>
+        <div class="label">Chế độ trả lời cho loại "Chuyển đổi trực tiếp"</div>
+        <div class="modes" style="margin-bottom:10px"><span>AI tự động</span><span class="on">AI gợi ý · duyệt</span><span>Thủ công</span></div>
+        <div class="input area" style="font-size:13px">Dạ em chào chị Mai Anh ạ! Serum còn hàng, giao 2–4 ngày nên đặt hôm nay là kịp nhận trước thứ 7 chị nha. Chị bấm link đang ghim để có giá live 349K, em gửi link ngay dưới đây ạ!</div>
+        <div class="row tiny muted" style="margin-top:6px"><i data-lucide="file-text" style="width:13px;height:13px"></i>Nguồn: Hồ sơ tư vấn · Giao hàng · Khuyến mãi</div>
+        <div class="label" style="margin-top:12px">Gửi bằng</div>
+        <div class="row small" style="gap:14px"><span class="row"><span class="radio on"></span>Trả lời text · tên Trang MateBeauty</span><span class="row"><span class="radio"></span>AI nói trong live</span></div>
+        <div class="row" style="margin-top:12px;gap:6px;flex-wrap:wrap"><span class="small semi">Chèn sản phẩm:</span><span class="chip"><img class="thumb" src="../../assets/img/p-serum.jpg" style="width:18px;height:18px;border-radius:4px">Serum 349K</span><span class="chip"><img class="thumb" src="../../assets/img/p-combo.jpg" style="width:18px;height:18px;border-radius:4px">Combo 799K</span></div>
+        <div class="row" style="margin-top:auto;padding-top:12px"><div class="btn sm"><i data-lucide="pencil"></i>Sửa</div><div class="btn primary right"><i data-lucide="send"></i>Gửi trả lời</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'comments',
+  search: 'Tìm bình luận, khách hàng, sản phẩm, #tag…',
+  spec: {
+    num: '15', title: 'Bình luận & Chuyển đổi', tags: [['fix', 'Cập nhật từ v2 trang 9']], phase: 'GĐ 6 + GĐ 7',
+    notes: [
+      'Đúng yêu cầu: AI tách "Chuyển đổi trực tiếp" (tô đỏ, chữ đậm, lên đầu) khỏi "Tư vấn sản phẩm", kèm % tin cậy và lý do phân loại.',
+      'Che SĐT/địa chỉ khách tự để lộ và mời nhắn riêng (v2 hiện nguyên). Trả lời bằng tài khoản Trang/kênh chính chủ hoặc để AI nói trong live.',
+      'Mỗi loại bình luận có chế độ riêng: AI tự động / AI gợi ý – duyệt / thủ công. TikTok & Shopee chưa có API bình luận → người vận hành nhập hoặc xử lý trên app.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>

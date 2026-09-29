@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Chính sách & Tuân thủ</title>
+<link rel="stylesheet" href="../blueprint.css">
+<style>
+  .body { display: grid; grid-template-columns: 1fr 470px; gap: 16px; flex: 1; min-height: 0; }
+  .mx th { font-size: 13px; color: var(--text); background: #fafbfd; }
+  .mx td { font-size: 12.5px; vertical-align: top; padding: 9px 10px; }
+  .mx td:first-child { font-weight: 600; font-size: 13px; width: 250px; }
+  .mx td:first-child .d { font-weight: 400; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+  .v { display: flex; gap: 6px; align-items: flex-start; line-height: 1.4; }
+  .v svg.lucide { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; }
+  .v.y svg.lucide { color: var(--green); } .v.n svg.lucide { color: var(--red); } .v.m svg.lucide { color: var(--amber); }
+  .v.n { color: #8a1426; }
+  .no li { list-style: none; display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 12.5px; padding: 6px 0; border-bottom: 1px dashed var(--line); line-height: 1.45; }
+  .no li:last-child { border-bottom: 0; }
+  .no li svg.lucide { width: 16px; height: 16px; color: var(--red); margin-top: 1px; }
+  .no b { font-size: 13px; }
+  .ok li { list-style: none; display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 12.5px; padding: 4px 0; line-height: 1.45; }
+  .ok li svg.lucide { width: 16px; height: 16px; color: var(--green); margin-top: 1px; }
+  .log { display: grid; grid-template-columns: 90px 1fr; gap: 10px; font-size: 12px; padding: 5px 0; }
+</style>
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head">
+    <div><h1>Chính sách & Tuân thủ</h1><p>Bộ quy tắc theo từng nền tảng, có phiên bản và ngày hiệu lực. MateLive tự chặn cấu hình vi phạm trước khi phát — đổi chính sách chỉ cần cập nhật bảng này, không sửa code.</p></div>
+    <div class="actions"><span class="badge purple" style="font-size:13px;padding:7px 12px"><i data-lucide="shield-check"></i>Bộ chính sách v2026.09</span><div class="btn"><i data-lucide="refresh-cw"></i>Xác minh lại</div></div>
+  </div>
+
+  <div class="body">
+    <div class="card" style="padding:14px 16px">
+      <table class="tbl mx">
+        <thead><tr><th>Khả năng</th><th><div class="row"><span class="plat sm yt"></span>YouTube</div></th><th><div class="row"><span class="plat sm fb"></span>Facebook</div></th><th><div class="row"><span class="plat sm tt"></span>TikTok Shop (VN)</div></th><th><div class="row"><span class="plat sm sp"></span>Shopee Live (VN)</div></th></tr></thead>
+        <tbody>
+          <tr><td>AI Host<div class="d">nhân vật AI + giọng AI dẫn live</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được · khai báo nội dung tổng hợp</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được · gắn nhãn AI</div></td><td><div class="v n"><i data-lucide="circle-x"></i>Cấm giọng AI / host AI trong LIVE bán hàng (7/2026)</div></td><td><div class="v m"><i data-lucide="circle-help"></i>Chưa xác nhận → tắt mặc định</div></td></tr>
+          <tr><td>Hybrid<div class="d">người thật nói, AI nhắc & gợi ý</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được · cách khuyên dùng</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được · cách khuyên dùng</div></td></tr>
+          <tr><td>Phát lại video ghi sẵn</td><td><div class="v y"><i data-lucide="circle-check"></i>Được</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được · ghi rõ "đã ghi hình trước"</div></td><td><div class="v n"><i data-lucide="circle-x"></i>Không · bị coi là nội dung không nguyên bản</div></td><td><div class="v n"><i data-lucide="circle-x"></i>Không · có thể bị dừng ngay (từ 06/04/2026)</div></td></tr>
+          <tr><td>Phát chung luồng với nền tảng khác</td><td><div class="v y"><i data-lucide="circle-check"></i>Được</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Được</div></td><td><div class="v n"><i data-lucide="circle-x"></i>Không phát đồng thời</div></td><td><div class="v m"><i data-lucide="triangle-alert"></i>Hạn chế · ưu tiên phiên riêng</div></td></tr>
+          <tr><td>Kết nối tài khoản</td><td><div class="v y"><i data-lucide="circle-check"></i>Đăng nhập Google (API)</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Trang: Facebook Login · cá nhân: key</div></td><td><div class="v m"><i data-lucide="key-round"></i>Stream key (tài khoản đủ điều kiện LIVE)</div></td><td><div class="v m"><i data-lucide="key-round"></i>Stream key RTMP (OBS)</div></td></tr>
+          <tr><td>Đọc / trả lời bình luận qua API</td><td><div class="v y"><i data-lucide="circle-check"></i>Có</div></td><td><div class="v y"><i data-lucide="circle-check"></i>Có · dưới tên Trang</div></td><td><div class="v m"><i data-lucide="hand"></i>Không có API chính thức → người vận hành</div></td><td><div class="v m"><i data-lucide="hand"></i>API Livestream chưa mở cho VN → người vận hành</div></td></tr>
+          <tr><td>Bố cục khuyến nghị</td><td>16:9 ngang</td><td>16:9 ngang</td><td>9:16 dọc</td><td>9:16 dọc</td></tr>
+          <tr><td>Nhãn nội dung AI</td><td colspan="4"><div class="v y"><i data-lucide="sparkles" style="color:var(--primary)"></i>Bắt buộc bật mỗi khi có hình/giọng do AI tạo — MateLive khóa lớp nhãn trong scene</div></td></tr>
+        </tbody>
+      </table>
+      <div class="row tiny muted" style="margin-top:10px;gap:14px"><span><i data-lucide="info" style="width:13px;height:13px;vertical-align:-2px"></i> Nguồn: trung tâm chính sách của từng nền tảng & tin tức ngành, xác minh 29/09/2026.</span><span>Chính sách thay đổi thường xuyên — người phụ trách xác minh lại mỗi tháng.</span></div>
+      <div class="hr" style="margin:12px 0"></div>
+      <div class="card-h" style="margin-bottom:6px"><i data-lucide="scroll" style="color:var(--primary)"></i><h3 style="font-size:15px">Nhật ký chặn gần đây</h3></div>
+      <div class="log"><span class="muted">29/09 11:02</span><span>Chặn bật <b>TikTok Shop</b> cho phiên AI Host "Đẹp rạng rỡ" → gợi ý tạo phiên Hybrid riêng lúc 14:00</span></div>
+      <div class="log"><span class="muted">28/09 19:40</span><span>Chặn phiên <b>Phát lại video</b> lên Shopee Live "Gia dụng tối" → đổi sang Hybrid với người dẫn Quân</span></div>
+      <div class="log"><span class="muted">27/09 09:15</span><span>Tắt tự trả lời cho "Sữa bột cho bé 0–12 tháng" — thuộc nhóm cấm quảng cáo</span></div>
+      <div class="log"><span class="muted">26/09 20:31</span><span>Chặn câu AI "trị dứt điểm nám" trong phiên Skincare tối — nằm trong "Câu AI không được nói"</span></div>
+      <div class="log"><span class="muted">25/09 14:05</span><span>Chặn thêm giọng "VietTTS (tự host)" vào phiên bán hàng — model chỉ cho phi thương mại</span></div>
+      <div class="log"><span class="muted">24/09 08:50</span><span>Cảnh báo phiên YouTube dài 13 giờ — YouTube chỉ lưu bản ghi phiên ≤ 12 giờ, đề xuất tách 2 phiên</span></div>
+    </div>
+
+    <div class="col" style="gap:16px">
+      <div class="card">
+        <div class="card-h"><i data-lucide="octagon-x" style="color:var(--red)"></i><h3>MateLive không làm</h3><span class="sub">và vì sao</span></div>
+        <ul class="no">
+          <li><i data-lucide="x"></i><div><b>Tài khoản ảo tự bình luận / seeding</b><br>Lừa người mua, vi phạm quy định tương tác giả của cả 4 nền tảng; khi bị phát hiện, tài khoản shop thật bị khóa theo.</div></li>
+          <li><i data-lucide="x"></i><div><b>Proxy, đổi IP, giả thiết bị để né kiểm duyệt</b><br>Không làm tăng lượt tiếp cận; nhiều tài khoản qua proxy bị coi là hành vi phối hợp không xác thực → khóa hàng loạt.</div></li>
+          <li><i data-lucide="x"></i><div><b>Tăng mắt xem ảo, nhân bản giọng/khuôn mặt không có đồng ý</b><br>Rủi ro pháp lý về quyền hình ảnh, giọng nói và quảng cáo sai sự thật.</div></li>
+        </ul>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="card-h"><i data-lucide="trending-up" style="color:var(--green)"></i><h3>Chống flop đúng cách</h3></div>
+        <ul class="ok">
+          <li><i data-lucide="check"></i><div>Trả lời bình luận thật trong vài giây, gọi tên khách — tín hiệu tương tác mạnh nhất</div></li>
+          <li><i data-lucide="check"></i><div>Kịch bản AI đổi liên tục, không lặp nguyên văn; có người thật ở TikTok/Shopee</div></li>
+          <li><i data-lucide="check"></i><div>Minigame, voucher & flash deal chỉ trong live; ghim sản phẩm đúng lúc</div></li>
+          <li><i data-lucide="check"></i><div>Luồng ổn định qua relay; hình 9:16 cho app dọc</div></li>
+          <li><i data-lucide="check"></i><div>Video ngắn kéo khách trước giờ live; quảng cáo chính chủ; hợp tác KOC thật</div></li>
+          <li><i data-lucide="check"></i><div>Nhiều tài khoản chính chủ + mod/nhân viên thật, bình luận ghi rõ "Shop"</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+window.SCREEN = {
+  active: 'policy',
+  spec: {
+    num: '18', title: 'Chính sách & Tuân thủ', tags: [['new', 'MỚI trong v3']], phase: 'GĐ 0 (dữ liệu) + GĐ 5 (bộ chặn)',
+    notes: [
+      'Ma trận năng lực theo nền tảng là "bộ não" chặn cấu hình sai ở Tạo phiên, AI nhân vật, Lịch. Có phiên bản + ngày xác minh để cập nhật khi nền tảng đổi luật.',
+      'Trả lời thẳng câu hỏi "proxy để khỏi flop": không làm, vì không tăng reach mà còn dễ bị khóa hàng loạt. Thay bằng các cách tăng tương tác thật ở cột phải.',
+      'Các mốc chính sách (TikTok 7/2026, Shopee 06/04/2026) cần xác minh lại trên Seller Center Việt Nam ở GĐ 0.'
+    ]
+  }
+};
+</script>
+<script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+<script src="../shell.js"></script>
+</body>
+</html>
